@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{#%
+{% import '_components.html' as components %}
+#}
+{% block title %}
+All posts in {{ category }}
+{% endblock title %}
+
+{% if articles_page.object_list|length > 0 %}
+	{% set category = articles_page.object_list[0].category %}
+{% endif %}
+
+{% block content %}
+	<h1>
+	All posts in {{ category }}
+	</h1>
+	<ul>
+	{% for article in articles_page.object_list %}
+		<li>
+			<h2>
+				<span class="date">{{ article.locale_date }}</span>
+				<a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+			</h2>
+			{{ article.content }}
+		</li>
+	{% endfor %}
+	</ul>
+	{% include 'pagination.html' %}
+
+{% endblock content %}

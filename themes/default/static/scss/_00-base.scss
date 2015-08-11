@@ -8,8 +8,9 @@
 // font sizes
 $base-font-size      : 14px !default; // if "14px" then 1em = 14px
 $line-height         : 1.5 !default; // equiv line-height 1.5
-$small-font-size     : .95rem !default;
-$x-small-font-size   : .85rem !default;
+$smallish-font-size  : 12px !default;
+$small-font-size     : 10px !default;
+$x-small-font-size   : 8px !default;
 $h1-size             : 3.2rem !default; // equiv "32px"
 $h2-size             : 2.8rem !default; // equiv "28px"
 $h3-size             : 2.4rem !default; // equiv "24px"
@@ -35,7 +36,7 @@ $base-color-link        : #333 !default; // base links color
 $base-color-link-hover  : #000 !default; // base hovered/focused links color
 
 // Borders
-$border-color           : #ddd !default; // standard border color
+$border-color-light     : #ddd !default; // standard border color
 $border-color-dark      : #bbb !default; // standard border color
 
 // backgrounds

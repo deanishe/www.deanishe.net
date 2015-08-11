@@ -26,6 +26,15 @@ READERS = {'html': None}
 # Paths and URL formatting
 # ---------------------------------------------------------
 
+DIRECT_TEMPLATES = [
+    'posts',
+    'categories',
+    'authors',
+    'archives',
+    'tags',
+]
+PAGINATED_DIRECT_TEMPLATES = ['posts']
+
 PATH = 'content'
 PAGE_PATHS = ['pages']
 ARTICLE_EXCLUDES = ['pages']
@@ -35,8 +44,12 @@ USE_FOLDER_AS_CATEGORY = True
 # News & stats
 # _ARTICLE_BASE = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 # ARTICLE_URL = '/' + _ARTICLE_BASE
-ARTICLE_URL = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = ARTICLE_URL + 'index.html'
+# ARTICLE_URL = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+# ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+# ARTICLE_SAVE_AS = ARTICLE_URL + 'index.html'
+
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
+ARTICLE_SAVE_AS = ARTICLE_URL
 
 # Static pages
 PAGE_URL = '{slug}/'

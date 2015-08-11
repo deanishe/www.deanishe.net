@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-	{% assets filters="compass,cssmin", output="css/screen.min.css", "sass/screen.scss" %}
+	{% assets filters="compass,cssmin", output="css/screen.min.css", "scss/screen.scss" %}
 		<link rel="stylesheet" href="/{{ ASSET_URL }}">
 		{% endassets %}
 	{#<script type="text/javascript" src="script.js" />#}
@@ -14,7 +14,7 @@
 	{% endblock head %}
 </head>
 <body>
-
+<a name="top"></a>
 {#
 	<header class="header txtcenter large-hidden">
 		<div class="logo">
@@ -88,12 +88,12 @@
 		</nav> <!-- /#mainmenu -->
 		#}
 		<div class="article-wrapper large-col">
-			<div id="submenu" class="row">
+			<div id="submenu" class="row submenu">
 				<ul>
+					<li><a href="{{ SITEURL }}/posts.html">Recent Posts</a></li>
 					<li><a href="{{ SITEURL }}/categories.html">Categories</a></li>
 					<li><a href="{{ SITEURL }}/tags.html">Tags</a></li>
-					<li><a href="{{ SITEURL }}">Recent Posts</a></li>
-					<li><a href="{{ SITEURL }}/archive.html">Archives</a></li>
+					<li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
 				</ul>
 			</div>
 			<article>

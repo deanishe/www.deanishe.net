@@ -2,13 +2,12 @@
 {% block title %}{{ SITENAME }} | {{ page.title }}{%endblock%}
 {% block content %}
 
-<h1>{{ page.title }}</h1>
-
-<nav id="toc">
+<nav class="toc fr">
 	{{ page.toc }}
 </nav>
+
+<h1>{{ page.title }}</h1>
 
 	{{ page.content }}
 
 {% endblock %}
-

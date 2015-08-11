@@ -5,11 +5,7 @@ Date:    May 29, 2011
 
 [TOC]
 
----
-
 Written and generated with **Byword**.
-
----
 
 
 ## Introduction ##

@@ -1,15 +1,17 @@
 {% extends "base.html" %}
-{% block title %}{{ SITENAME }} | {{ article.title }}{%endblock%}
-
-<h1>{{ article.title }}</h1>
+{% block title %}{{ article.title }}// {{ SITENAME }}{%endblock%}
 
 {% block content %}
 
-<nav id="toc">
+<h1>{{ article.title }}</h1>
+
+<nav class="contents fr">
+	{# <h1>Contents</h1> #}
+	<a href="#top">^ <span>Top</span></a>
 	{{ article.toc }}
 </nav>
 
-	{{ article.content }}
+
+{{ article.content }}
 
 {% endblock %}
-

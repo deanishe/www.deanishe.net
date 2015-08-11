@@ -1,0 +1,316 @@
+
+@import 'knacss';
+@import 'hilite';
+
+// Easily add vendor prefixes
+// http://www.sitepoint.com/sass-mixins-kickstart-project/
+@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{'-' + $vendor + '-' + $property}: #{$value};
+    }
+  }
+  #{$property}: #{$value};
+}
+
+body {
+  padding: 0;
+}
+
+
+// 88d8b.d8b. .d8888b. 88d888b. dP    dP .d8888b.
+// 88'`88'`88 88ooood8 88'  `88 88    88 Y8ooooo.
+// 88  88  88 88.  ... 88    88 88.  .88       88
+// dP  dP  dP `88888P' dP    dP `88888P' `88888P'
+
+.header {
+  margin-bottom: $medium-value;
+  padding-top: $large-value;
+  // border: 1px dotted green;
+
+  div.logo {
+  }
+
+  h1 {
+    font-size: $h3-size;
+    margin: $small-value 0;
+    padding: 0;
+  }
+}
+
+.mainmenu,
+.submenu {
+  a {
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      span {
+        text-decoration: underline;
+      }
+    }
+
+    img {
+      @include prefix(opacity, .25);
+    }
+  }
+}
+
+.submenu {
+  border-bottom: 1px solid $border-color-light;
+  border-top: 1px solid $border-color-light;
+  font-size: $small-font-size;
+  font-weight: bold;
+  padding-bottom: $medium-plus-value;
+  padding-top: $medium-plus-value;
+  text-align: center;
+  text-transform: uppercase;
+
+  a {
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      border-right: 1px solid $base-color;
+      display: inline-block;
+      padding-left: $small-value;
+      padding-right: $small-value;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.mainmenu {
+  ul {
+    list-style: none;
+    margin: 0;
+    margin-bottom: $small-plus-value;
+    padding: 0;
+
+    li {
+      border-right: 1px solid $border-color-dark;
+      display: inline-block;
+      line-height: 2;
+      padding-left: $small-plus-value;
+      padding-right: $small-plus-value;
+
+      a {
+
+        img {
+          display: inline-block;
+          padding-right: $tiny-value;
+        }
+
+        &:active,
+        &:hover {
+
+          span {
+            text-decoration: none;
+          }
+
+          img {
+            @include prefix(opacity, 1);
+          }
+        }
+      }
+
+      &:first-child {
+        padding-left: none;
+      }
+
+      &:last-child {
+        padding-right: none;
+        border-right: none;
+      }
+    }
+  }
+}
+
+
+//                              dP                       dP
+//                              88                       88
+// .d8888b. .d8888b. 88d888b. d8888P .d8888b. 88d888b. d8888P
+// 88'  `"" 88'  `88 88'  `88   88   88ooood8 88'  `88   88
+// 88.  ... 88.  .88 88    88   88   88.  ... 88    88   88
+// `88888P' `88888P' dP    dP   dP   `88888P' dP    dP   dP
+
+.contents {
+  margin: 0 $large-value;
+  // margin-left: $medium-value;
+  border-left: 1px solid $border-color-light;
+  font-size: $smallish-font-size;
+  padding-left: $medium-plus-value;
+  position: relative;
+  z-index: 1;
+
+  h1 {
+    font-size: $h6-size;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    &:active,
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    ul {
+      padding-left: $small-plus-value;
+    }
+
+    a {
+    text-decoration: none;
+
+      &:active,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.article-wrapper {
+
+  >* {
+    padding-left: $medium-value;
+    padding-right: $medium-value;
+  }
+}
+
+article {
+  padding-top: $small-plus-value;
+
+  hr {
+    clear: none;
+  }
+}
+
+
+//                         dP             dP       dP                   dP
+//                         88             88       88                   88
+// .d8888b. .d8888b. .d888b88 .d8888b.    88d888b. 88 .d8888b. .d8888b. 88  .dP  .d8888b.
+// 88'  `"" 88'  `88 88'  `88 88ooood8    88'  `88 88 88'  `88 88'  `"" 88888"   Y8ooooo.
+// 88.  ... 88.  .88 88.  .88 88.  ...    88.  .88 88 88.  .88 88.  ... 88  `8b.       88
+// `88888P' `88888P' `88888P8 `88888P'    88Y8888' dP `88888P' `88888P' dP   `YP `88888P'
+
+
+table.highlighttable {
+
+  td.linenos,
+  td.code {
+    padding: $tiny-plus-value;
+  }
+}
+
+.linenos {
+  color: $border-color-dark;
+  min-width: 2em;
+  text-align: right;
+  // padding-left: 1em;
+  // padding-right: 1em;
+  @include prefix(user-select, none);
+  vertical-align: top;
+  width: 3.5em;
+}
+
+.highlight {
+  pre {
+    overflow-x: auto;
+    white-space: pre;
+
+    * {
+      white-space: nowrap;
+    }
+  }
+}
+
+// div.linenodiv {
+//  display: inline-block;
+//  pre {
+//    display: inline-block;
+//  }
+// }
+
+
+// dP
+// 88
+// 88 .d8888b. 88d888b. .d8888b. .d8888b.
+// 88 88'  `88 88'  `88 88'  `88 88ooood8
+// 88 88.  .88 88       88.  .88 88.  ...
+// dP `88888P8 dP       `8888P88 `88888P'
+//                           .88
+//                       d8888P
+
+@media (min-width: $medium-screen+1) {
+  .header {
+    padding-left: $medium-value;
+    padding-right: $large-value;
+    padding-top: $medium-value;
+    text-align: right;
+  }
+
+  .article-wrapper {
+
+    >* {
+      padding-left: $large-value;
+      padding-right: $large-value;
+    }
+  }
+
+  .mainmenu {
+    ul {
+      padding: 0;
+
+      li {
+        border-right: 0;
+        display: block;
+        line-height: 2.5;
+        padding: 0;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  .article-wrapper {
+    border-left: 1px solid $border-color-light;
+  }
+
+  .submenu {
+    border-top: 0;
+    padding-left: $small-plus-value;
+    text-align: left;
+  }
+
+  article {
+    max-width: 768px;
+  }
+}

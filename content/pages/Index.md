@@ -1,8 +1,7 @@
 title: Home
-author: deanishe@deanishe.net
-url: 
+author: deanishe
+email: deanishe@deanishe.net
 date: 2015-08-09
-save_as: index.html
 
 ```python
 import os

@@ -14,7 +14,7 @@
 	{% endblock head %}
 </head>
 <body>
-<a name="top"></a>
+	<a name="top"></a>
 {#
 	<header class="header txtcenter large-hidden">
 		<div class="logo">
@@ -31,7 +31,7 @@
 		</nav>
 	</header>
 #}
-	<div id="page row">
+	<div id="page">
 
 		<header class="header large-col center txtcenter large-w25">
 			<div class="logo">
@@ -88,7 +88,7 @@
 		</nav> <!-- /#mainmenu -->
 		#}
 		<div class="article-wrapper large-col">
-			<div id="submenu" class="row submenu">
+			<div id="submenu" class="submenu row">
 				<ul>
 					<li><a href="{{ SITEURL }}/posts.html">Recent Posts</a></li>
 					<li><a href="{{ SITEURL }}/categories.html">Categories</a></li>
@@ -96,15 +96,14 @@
 					<li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
 				</ul>
 			</div>
-			<article>
+			<section id="content" class="">
 			{% block content %}
 			{% endblock content %}
-			</article>
+			</section>
+			<footer id="footer" class="txtcenter">
+				Copyright &copy; Dean Jackson 2015
+			</footer>
 		</div>
 	</div> <!-- /#page -->
-
-	<footer class="row">
-		
-	</footer>
 </body>
 </html>

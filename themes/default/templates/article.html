@@ -2,16 +2,22 @@
 {% block title %}{{ article.title }}// {{ SITENAME }}{%endblock%}
 
 {% block content %}
+<article class="">
 
-<h1>{{ article.title }}</h1>
+	<nav class="toc-wrapper fr">
+		{# <h1>Contents</h1> #}
+		<a href="#top">^ <span>Top</span></a>
+		{{ article.toc }}
+		{# <a href="#top">^ <span>Top</span></a> #}
+	</nav>
 
-<nav class="contents fr">
-	{# <h1>Contents</h1> #}
-	<a href="#top">^ <span>Top</span></a>
-	{{ article.toc }}
-</nav>
+	<div class="body">
 
+		<h1 class="">{{ article.title }}</h1>
 
-{{ article.content }}
+		{{ article.content }}
 
+	</div>
+
+</article>
 {% endblock %}

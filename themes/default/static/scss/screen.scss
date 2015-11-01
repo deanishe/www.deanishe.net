@@ -2,6 +2,8 @@
 @import 'knacss';
 @import 'hilite';
 
+@import "compass/css3/border-radius";
+
 // Easily add vendor prefixes
 // http://www.sitepoint.com/sass-mixins-kickstart-project/
 @mixin prefix($property, $value, $vendors: webkit moz ms o) {
@@ -17,6 +19,13 @@ body {
   padding: 0;
 }
 
+table {
+  margin-top: 0.75em;
+  &.highlighttable {
+    margin-bottom: 0.75em;
+  }
+}
+
 
 // 88d8b.d8b. .d8888b. 88d888b. dP    dP .d8888b.
 // 88'`88'`88 88ooood8 88'  `88 88    88 Y8ooooo.
@@ -26,7 +35,6 @@ body {
 .header {
   margin-bottom: $medium-value;
   padding-top: $large-value;
-  // border: 1px dotted green;
 
   div.logo {
   }
@@ -151,8 +159,13 @@ body {
 // 88.  ... 88.  .88 88    88   88   88.  ... 88    88   88
 // `88888P' `88888P' dP    dP   dP   `88888P' dP    dP   dP
 
-.contents {
-  margin: 0 $large-value;
+#content {
+  // border: 1px dashed orange;
+}
+
+.toc-wrapper {
+  margin: $small-plus-value 0 $large-value $large-value;
+  // border: 1px dotted green;
   // margin-left: $medium-value;
   border-left: 1px solid $border-color-light;
   font-size: $smallish-font-size;
@@ -205,12 +218,71 @@ body {
 
 article {
   padding-top: $small-plus-value;
+  padding-bottom: $medium-plus-value;
+  display: block;
 
   hr {
     clear: none;
   }
+  .body {
+    max-width: $small-plus-screen;
+  }
 }
 
+
+#featured {
+  // border: 1px dotted red;
+  padding-bottom: $medium-value;
+  margin-bottom: $medium-value;
+}
+
+.post-info {
+  abbr, address {
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+  }
+}
+
+.taglist {
+  // border: 1px dotted green;
+  // display: inline-block;
+  padding: 0;
+  list-style: none;
+  li {
+    display: inline-block;
+    a {
+      font-size: $smallish-font-size;
+      display: inline-block;
+      padding: 0 $tiny-value;
+      border: 1px solid $base-color-link;
+      background-color: $base-color-link;
+      color: $base-background;
+      @include border-radius(4px, 4px);
+      text-decoration: none;
+      &:hover {
+        background-color: $base-background;
+        color: $base-color-link;
+      }
+    }
+  }
+}
+
+
+// .8888b                     dP
+// 88   "                     88
+// 88aaa  .d8888b. .d8888b. d8888P .d8888b. 88d888b.
+// 88     88'  `88 88'  `88   88   88ooood8 88'  `88
+// 88     88.  .88 88.  .88   88   88.  ... 88
+// dP     `88888P' `88888P'   dP   `88888P' dP
+
+#footer {
+  border-top: 1px solid $border-color-light;
+  padding-top: $medium-value;
+  padding-bottom: $medium-value;
+  color: $tertiary-color;
+  font-size: $smallish-font-size;
+}
 
 //                         dP             dP       dP                   dP
 //                         88             88       88                   88
@@ -310,7 +382,19 @@ table.highlighttable {
     text-align: left;
   }
 
-  article {
-    max-width: 768px;
-  }
+  // article {
+  //     max-width: 1100px;
+  //   .body {
+  //     max-width: 768px;
+  //   }
+  // }
 }
+
+// @media (min-width: $large-screen+1) {
+//   article {
+//       max-width: 1100px;
+//     .body {
+//       max-width: 768px;
+//     }
+//   }
+// }

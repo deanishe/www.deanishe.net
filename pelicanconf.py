@@ -94,6 +94,7 @@ EXTRA_PATH_METADATA = {}
 THEME = 'themes/default'
 # THEME = 'simple'
 ASSET_SOURCE_PATHS = ['static']
+SHOW_AUTHOR = False
 
 
 # ---------------------------------------------------------

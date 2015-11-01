@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block title %}{{ SITENAME }} | {{ page.title }}{%endblock%}
 {% block content %}
+<article class="">
+	<nav class="toc fr">
+		{{ page.toc }}
+	</nav>
 
-<nav class="toc fr">
-	{{ page.toc }}
-</nav>
+	<div class="body">
+		<h1 class="">{{ page.title }}</h1>
 
-<h1>{{ page.title }}</h1>
+		{{ page.content }}
+	</div>
 
-	{{ page.content }}
-
+</article>
 {% endblock %}

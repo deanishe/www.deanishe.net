@@ -10,3 +10,5 @@ import os
 for filename in os.listdir(os.getenv('HOME')):
     print(filename)
 ```
+
+Go to [VIM](/vim.html).

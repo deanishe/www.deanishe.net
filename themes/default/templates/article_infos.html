@@ -1,21 +1,22 @@
-<footer class="post-info">
-        <abbr class="published" title="{{ article.date.isoformat() }}">
-                Published: {{ article.locale_date }}
-        </abbr>
-        {% if article.modified %}
-		<br />
-        <abbr class="modified" title="{{ article.modified.isoformat() }}">
-                Updated: {{ article.locale_modified }}
-        </abbr>
-        {% endif %}
+<aside class="post-info mod">
+	<div class="published fl" title="{{ article.date.isoformat() }}">
+		{{ article.locale_date }}
+	</div>
+	{% if article.modified %}
+	<div class="modified fl" title="{{ article.modified.isoformat() }}">
+		(updated: {{ article.locale_modified }})
+	</div>
+	{% endif %}
 
-        {% if article.authors %}
-        <address class="vcard author">
-                By {% for author in article.authors %}
-                        <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                {% endfor %}
-        </address>
-        {% endif %}
-<p>In <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.</p>
-{% include 'taglist.html' %}
-</footer><!-- /.post-info -->
+	{% if SHOW_AUTHOR and article.authors %}
+	<address class="vcard author fl">
+		by {% for author in article.authors %}
+			<a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+		{% endfor %}
+	</address>
+	{% endif %}
+	<div class="category fl">in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></div>
+	<div class="taglist fr mod">
+		{% include 'taglist.html' %}
+	</div>
+</aside><!-- /.post-info -->

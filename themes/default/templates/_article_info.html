@@ -1,22 +1,22 @@
 <aside class="post-info mod">
-	<div class="published fl" title="{{ article.date.isoformat() }}">
+	<span class="published" title="{{ article.date.isoformat() }}">
 		{{ article.locale_date }}
-	</div>
+	</span>
 	{% if article.modified %}
-	<div class="modified fl" title="{{ article.modified.isoformat() }}">
+	<span class="modified" title="{{ article.modified.isoformat() }}">
 		(updated: {{ article.locale_modified }})
-	</div>
+	</span>
 	{% endif %}
 
 	{% if SHOW_AUTHOR and article.authors %}
-	<address class="vcard author fl">
+	<address class="vcard author">
 		by {% for author in article.authors %}
 			<a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
 		{% endfor %}
 	</address>
 	{% endif %}
-	<div class="category fl">in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></div>
-	<div class="taglist fr mod">
-		{% include 'taglist.html' %}
-	</div>
+	<span class="category">in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></span>
+	<span class="taglist fr">
+		{% include '_taglist.html' %}
+	</span>
 </aside><!-- /.post-info -->

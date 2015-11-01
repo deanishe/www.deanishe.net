@@ -15,6 +15,13 @@
   #{$property}: #{$value};
 }
 
+// dP                         oo
+// 88
+// 88d888b. .d8888b. .d8888b. dP .d8888b.
+// 88'  `88 88'  `88 Y8ooooo. 88 88'  `""
+// 88.  .88 88.  .88       88 88 88.  ...
+// 88Y8888' `88888P8 `88888P' dP `88888P'
+
 body {
   padding: 0;
 }
@@ -22,10 +29,26 @@ body {
 table {
   margin-top: 0.75em;
   &.highlighttable {
-    margin-bottom: 0.75em;
+    // margin-bottom: 0.75em;
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color;
+  a {
+    text-decoration: none;
+  }
+}
+
+a.top {
+  text-decoration: none;
+  &:active,
+  &:hover {
+    span {
+      text-decoration: underline;
+    }
+  }
+}
 
 // 88d8b.d8b. .d8888b. 88d888b. dP    dP .d8888b.
 // 88'`88'`88 88ooood8 88'  `88 88    88 Y8ooooo.
@@ -40,14 +63,18 @@ table {
   }
 
   h1 {
-    font-size: $h3-size;
+    font-size: $h4-size;
     margin: $small-value 0;
     padding: 0;
+    a {
+      text-decoration: none;
+    }
   }
 }
 
-.mainmenu,
-.submenu {
+.social,
+.submenu,
+.mainmenu {
   a {
     font-weight: bold;
     text-decoration: none;
@@ -60,11 +87,43 @@ table {
     }
 
     img {
-      @include prefix(opacity, .25);
+      @include prefix(opacity, .5);
     }
   }
 }
 
+// from MAIN_MENU in pelicanconf.py
+.mainmenu {
+  ul {
+    padding: 0;
+    border: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+      border-right: 1px solid $base-color;
+      padding-left: $small-value;
+      padding-right: $small-value;
+
+      a {
+        &:hover,
+        &:active {
+          text-decoration: underline;
+        }
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        border-right: none;
+      }
+    }
+  }
+}
+
+// Blog posts/categories/tags/archives
 .submenu {
   border-bottom: 1px solid $border-color-light;
   border-top: 1px solid $border-color-light;
@@ -105,7 +164,8 @@ table {
   }
 }
 
-.mainmenu {
+.social {
+  font-size: $smallish-font-size;
   ul {
     list-style: none;
     margin: 0;
@@ -113,14 +173,15 @@ table {
     padding: 0;
 
     li {
-      border-right: 1px solid $border-color-dark;
+      // border-right: 1px solid $border-color-dark;
       display: inline-block;
       line-height: 2;
-      padding-left: $small-plus-value;
-      padding-right: $small-plus-value;
+      padding-left: $small-value;
+      padding-right: $small-value;
 
       a {
 
+        @include prefix(opacity, .7);
         img {
           display: inline-block;
           padding-right: $tiny-value;
@@ -128,6 +189,8 @@ table {
 
         &:active,
         &:hover {
+
+          @include prefix(opacity, 1);
 
           span {
             text-decoration: none;
@@ -161,17 +224,33 @@ table {
 
 #content {
   // border: 1px dashed orange;
+  padding-top: $medium-value;
+  padding-bottom: $medium-plus-value;
 }
 
+//   dP
+//   88
+// d8888P .d8888b. .d8888b.
+//   88   88'  `88 88'  `""
+//   88   88.  .88 88.  ...
+//   dP   `88888P' `88888P'
+
 .toc-wrapper {
+  display: none;
   margin: $small-plus-value 0 $large-value $large-value;
+  width: 250px;
   // border: 1px dotted green;
   // margin-left: $medium-value;
   border-left: 1px solid $border-color-light;
   font-size: $smallish-font-size;
-  padding-left: $medium-plus-value;
+  padding-left: $large-value;
+  padding-bottom: $large-value;
   position: relative;
   z-index: 1;
+
+  &.show {
+    display: block;
+  }
 
   h1 {
     font-size: $h6-size;
@@ -179,15 +258,15 @@ table {
     padding: 0;
   }
 
-  a {
-    text-decoration: none;
-    &:active,
-    &:hover {
-      span {
-        text-decoration: underline;
-      }
-    }
-  }
+  // a {
+  //   text-decoration: none;
+  //   &:active,
+  //   &:hover {
+  //     span {
+  //       text-decoration: underline;
+  //     }
+  //   }
+  // }
 
   ul {
     list-style: none;
@@ -208,24 +287,61 @@ table {
   }
 }
 
+//                     dP   oo          dP
+//                     88               88
+// .d8888b. 88d888b. d8888P dP .d8888b. 88 .d8888b. .d8888b.
+// 88'  `88 88'  `88   88   88 88'  `"" 88 88ooood8 Y8ooooo.
+// 88.  .88 88         88   88 88.  ... 88 88.  ...       88
+// `88888P8 dP         dP   dP `88888P' dP `88888P' `88888P'
+
 .article-wrapper {
 
   >* {
-    padding-left: $medium-value;
-    padding-right: $medium-value;
+    padding-left: $small-value;
+    padding-right: $small-value;
+  }
+
+  a.top {
+    font-weight: bold;
   }
 }
 
 article {
-  padding-top: $small-plus-value;
-  padding-bottom: $medium-plus-value;
   display: block;
+
+  header {
+    max-width: $small-plus-screen;
+    h1, h2 {
+      // border: 1px dotted green;
+      // margin-bottom: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  h2, h3, h4, h5, h6 {
+    border-bottom: 1px solid $border-color-light;
+  }
 
   hr {
     clear: none;
   }
   .body {
     max-width: $small-plus-screen;
+  }
+
+  footer {
+    // border: 1px dotted pink;
+    padding: $medium-value 0 0 0;
+  }
+
+  &.entry {
+    // color: $secondary-color;
+    // padding-top: $small-plus-value;
+    // padding-bottom: $medium-plus-value;
+    .body {
+      // margin-left: $medium-plus-value;
+    }
   }
 }
 
@@ -237,12 +353,21 @@ article {
 }
 
 .post-info {
-  abbr, address {
-    display: inline-block;
-    float: left;
-    margin-right: 5px;
+  font-size: $smallish-font-size;
+  max-width: $small-plus-screen;
+  // border: 1px dotted orange;
+  // border-top: 1px solid $border-color-light;
+  padding-bottom: $small-plus-value;
+  padding-top: $tiny-value;
+  address {
+    display: inline;
+    font-style: normal;
+  }
+  .taglist li a {
+    font-size: $small-font-size;
   }
 }
+
 
 .taglist {
   // border: 1px dotted green;
@@ -268,6 +393,53 @@ article {
   }
 }
 
+
+//                              dP      dP oo            dP
+//                              88      88               88
+// 88d888b. .d8888b. .d8888b. d8888P    88 dP .d8888b. d8888P
+// 88'  `88 88'  `88 Y8ooooo.   88      88 88 Y8ooooo.   88
+// 88.  .88 88.  .88       88   88      88 88       88   88
+// 88Y888P' `88888P' `88888P'   dP      dP dP `88888P'   dP
+// 88
+// dP
+
+.posts-wrapper {
+  // padding-top: $medium-value;
+  h1 {
+    // border: 1px dotted red;
+    margin: 0;
+  }
+}
+
+.posts-list {
+  list-style: none;
+  // border: 1px solid green;
+  padding: 0;
+  article {
+    // color: $secondary-color;
+    // padding-top: $small-plus-value;
+    // padding-bottom: $medium-plus-value;
+    .body {
+      margin-left: $medium-plus-value;
+      // font-style: italic;
+      font-size: 90%;
+      table.highlighttable {
+        display: none;
+      }
+    }
+  }
+  &>li {
+    padding-bottom: $medium-plus-value;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  h1 { font-size: $h2-size; }
+  h2 { font-size: $h3-size; }
+  h3 { font-size: $h4-size; }
+  h4 { font-size: $h5-size; }
+  h5 { font-size: $h6-size; }
+}
 
 // .8888b                     dP
 // 88   "                     88
@@ -330,6 +502,23 @@ table.highlighttable {
 // }
 
 
+//                           dP oo
+//                           88
+// 88d8b.d8b. .d8888b. .d888b88 dP dP    dP 88d8b.d8b.
+// 88'`88'`88 88ooood8 88'  `88 88 88    88 88'`88'`88
+// 88  88  88 88.  ... 88.  .88 88 88.  .88 88  88  88
+// dP  dP  dP `88888P' `88888P8 dP `88888P' dP  dP  dP
+
+@media (min-width: $small-plus-screen+1) {
+  .article-wrapper {
+
+    >* {
+      padding-left: $medium-value;
+      padding-right: $medium-value;
+    }
+  }
+}
+
 // dP
 // 88
 // 88 .d8888b. 88d888b. .d8888b. .d8888b.
@@ -345,25 +534,39 @@ table.highlighttable {
     padding-right: $large-value;
     padding-top: $medium-value;
     text-align: right;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    // border: 1px dashed pink;
   }
 
   .article-wrapper {
 
+    padding-left: 25% !important;
+    border: none;
+
     >* {
       padding-left: $large-value;
       padding-right: $large-value;
+      border-left: 1px solid $border-color-light;
     }
   }
 
-  .mainmenu {
+  .social {
+      padding-top: $tiny-value;
+      padding-bottom: $small-plus-value;
+      margin: 0;
+      // border: 1px dotted green;
     ul {
       padding: 0;
 
       li {
         border-right: 0;
-        display: block;
-        line-height: 2.5;
-        padding: 0;
+        padding-left: $small-value;
+        // display: block;
+        // line-height: 2.5;
+        // padding: 0;
 
         &:last-child {
           padding-right: 0;
@@ -378,9 +581,35 @@ table.highlighttable {
 
   .submenu {
     border-top: 0;
-    padding-left: $small-plus-value;
+    // padding-left: $small-plus-value;
     text-align: left;
   }
+
+  .mainmenu {
+    ul {
+      li {
+        display: block;
+        border-right: none;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  //                   dP
+//                   88
+// dP.  .dP          88 .d8888b. 88d888b. .d8888b. .d8888b.
+//  `8bd8'  88888888 88 88'  `88 88'  `88 88'  `88 88ooood8
+//  .d88b.           88 88.  .88 88       88.  .88 88.  ...
+// dP'  `dP          dP `88888P8 dP       `8888P88 `88888P'
+//                                             .88
+//                                         d8888P
+
+@media (min-width: $large-screen) {
+  .toc-wrapper {
+    display: block;
+  }
+}
 
   // article {
   //     max-width: 1100px;

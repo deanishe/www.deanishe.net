@@ -14,46 +14,12 @@
 	{% endblock head %}
 </head>
 <body>
-	<a name="top"></a>
-{#
-	<header class="header txtcenter large-hidden">
-		<div class="logo">
-			<img src="{{ SITEURL }}/theme/images/deanishe-128.png" />
-		</div>
-		<h1>deanishe's stuff</h1>
-		<nav class="topmenu">
-			<ul>
-				<li><a href="{{ SITEURL }}">Home</a></li>
-				<li><a href="{{ SITEURL }}">Contents</a></li>
-				<li><a href="https://github.com/deanishe">GitHub</a></li>
-				<li><a href="https://twitter.com/deanishe">Twitter</a></li>
-			</ul>
-		</nav>
-	</header>
-#}
+	<a id="top" name="top"></a>
 	<div id="page">
 
 		<header class="header large-col center txtcenter large-w25">
-			<div class="logo">
-				<img src="{{ SITEURL }}/theme/images/deanishe-128.png" />
-			</div>
-			<h1>dem Dean sein Zeug</h1>
-			<nav class="mainmenu">
+			<nav class="social">
 				<ul>
-					<li>
-						<a href="{{ SITEURL }}">
-							<img src="{{ SITEURL }}/theme/images/home2-24.png"/>
-							<span>Web</span>
-						</a>
-					</li>
-					{#
-					<li>
-						<a href="{{ SITEURL }}">
-							<!-- <img src="{{ SITEURL }}/theme/images/folder-open-24.png"/> -->
-							<span>Contents</span>
-						</a>
-					</li>
-					#}
 					<li>
 						<a href="https://github.com/deanishe">
 							<img src="{{ SITEURL }}/theme/images/github-24.png"/>
@@ -66,6 +32,21 @@
 							<span>Twitter</span>
 						</a>
 					</li>
+				</ul>
+			</nav>
+			<div class="logo">
+				<a href="{{ SITEURL }}">
+					<img src="{{ SITEURL }}/theme/images/deanishe-128.png" />
+				</a>
+			</div>
+			<h1>
+				<a href="{{ SITEURL }}">dem Dean sein Zeug</a>
+			</h1>
+			<nav class="mainmenu">
+				<ul>
+					{% for name, url in MAIN_MENU %}
+					<li><a href="{{ url }}">{{ name }}</a></li>
+					{% endfor %}
 				</ul>
 			</nav>
 		</header>
@@ -90,15 +71,16 @@
 		<div class="article-wrapper large-col">
 			<div id="submenu" class="submenu row">
 				<ul>
-					<li><a href="{{ SITEURL }}/posts.html">Recent Posts</a></li>
-					<li><a href="{{ SITEURL }}/categories.html">Categories</a></li>
-					<li><a href="{{ SITEURL }}/tags.html">Tags</a></li>
-					<li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+					<li><a href="{{ SITEURL }}/">Recent Posts</a></li>
+					<li><a href="{{ SITEURL }}/c/">Categories</a></li>
+					<li><a href="{{ SITEURL }}/t/">Tags</a></li>
+					<li><a href="{{ SITEURL }}/p/">Archives</a></li>
 				</ul>
 			</div>
 			<section id="content" class="">
 			{% block content %}
 			{% endblock content %}
+			<a href="#top" class="top inbl">^ <span>Top</span></a>
 			</section>
 			<footer id="footer" class="txtcenter">
 				Copyright &copy; Dean Jackson 2015

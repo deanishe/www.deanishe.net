@@ -3,21 +3,49 @@
 
 {% block content %}
 <article class="">
-
-	<nav class="toc-wrapper fr">
-		{# <h1>Contents</h1> #}
-		<a href="#top">^ <span>Top</span></a>
-		{{ article.toc }}
-		{# <a href="#top">^ <span>Top</span></a> #}
-	</nav>
-
-	<div class="body">
-
-		<h1 class="">{{ article.title }}</h1>
-
-		{{ article.content }}
-
+	<div id="toc-wrapper" class="toc-wrapper fr">
+		<nav class="toc">
+			{# <h1>Contents</h1> #}
+			<a href="#top" class="top">^ <span>Top</span></a>
+			{{ article.toc }}
+			{# <a href="#top">^ <span>Top</span></a> #}
+		</nav>
 	</div>
 
+	<div class="mod">
+		<header>
+			<div class="toc-trigger fr">
+				[<a href="#" onClick="toggleClass('toc-wrapper', 'show'); return false">TOC</a>]
+			</div>
+			<h1 class="">{{ article.title }}</h1>
+		</header>
+
+		<div class="body">
+			{% include '_article_info.html' %}
+
+			{{ article.content }}
+
+		</div>
+	</div>
+
+	<footer></footer>
+	<script type="text/javascript">
+	function toggleClass(elemId, className) {
+		var e = document.getElementById(elemId);
+		if ( e === null ) {
+			console.log('ERROR No element found for `' + elemId + '`');
+			return
+		}
+		var c = e.className;
+		// console.log(c);
+		var rx = new RegExp('(?:^|\\s)' + className + '(?!\\S)');
+		if ( c.match(rx) ) {
+			e.className = c.replace(rx, '');
+		} else {
+			e.className += ' ' + className;
+		}
+		console.log(e.className);
+	}
+	</script>
 </article>
 {% endblock %}

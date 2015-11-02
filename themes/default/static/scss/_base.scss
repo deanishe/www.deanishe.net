@@ -17,3 +17,16 @@
   }
   #{$property}: #{$value};
 }
+
+@mixin dark-links() {
+	a {
+    color: $base-color;
+    &:hover, &:focus, &:active {
+      text-decoration: underline;
+      color: $base-color;
+    }
+    &:visited {
+      color: $headings-color;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+{% import '_components.html' as components %}
+
 <ul class="posts-list">
 {% for article in articles_page.object_list %}
     <li>
@@ -17,7 +19,7 @@
                 {# {% include 'taglist.html' %} #}
             </div><!-- /.body -->
             <footer>
-                <a href="{{ SITEURL }}/{{ article.url }}">read more &raquo;</a>
+                {{ components.read_more_link(SITEURL + '/' + article.url) }}
             </footer>
         </article>
     </li>

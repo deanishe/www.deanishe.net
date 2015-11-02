@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5, h6 {
   a {
     text-decoration: none;
   }
+  @include dark-links();
 }
 
 a.top {
@@ -43,7 +44,8 @@ a.top {
 
 .header {
   margin-bottom: $medium-value;
-  padding-top: $large-value;
+  // padding-top: $large-value;
+  padding-top: $medium-value;
 
   div.logo {
   }
@@ -61,6 +63,7 @@ a.top {
 .social,
 .submenu,
 .mainmenu {
+  @include dark-links();
   a {
     font-weight: bold;
     text-decoration: none;
@@ -210,8 +213,15 @@ a.top {
 
 #content {
   // border: 1px dashed orange;
-  padding-top: $medium-value;
-  padding-bottom: $medium-plus-value;
+  padding: 0;
+  // padding-top: $medium-value;
+  // padding-bottom: $medium-plus-value;
+  > article {
+    padding-top: $medium-value;
+    padding-bottom: $medium-plus-value;
+    padding-left: $small-value;
+    padding-right: $small-value;
+  }
 }
 
 //   dP
@@ -291,13 +301,13 @@ article {
     h1, h2 {
       // border: 1px dotted green;
       // margin-bottom: 0;
-      padding: 0;
-      margin: 0;
+      // padding: 0;
+      // margin: 0;
     }
   }
 
   h2, h3, h4, h5, h6 {
-    border-bottom: 1px solid $border-color-light;
+    // border-bottom: 1px solid $border-color-light;
   }
 
   hr {
@@ -331,8 +341,30 @@ article {
     display: inline;
     font-style: normal;
   }
-  .taglist li a {
-    font-size: $small-font-size;
+  .taglist {
+    display: inline-block;
+  }
+}
+
+
+a.more {
+  color: $base-color;
+  text-decoration: none;
+  &:hover, &:focus, &:active, &:visited {
+    color: $base-color;
+  }
+  span {
+    color: $base-color-link;
+    text-decoration: underline;
+  }
+  &:visited {
+    span {
+      color: $base-color-link-visited;
+    }
+  }
+  &:hover {
+    span { color: $base-color-link-hover;
+    }
   }
 }
 
@@ -353,17 +385,29 @@ article {
   list-style: none;
   li {
     display: inline-block;
+    // a {
+    //   font-size: $smallish-font-size;
+    //   display: inline-block;
+    //   padding: 0 $tiny-value;
+    //   // border: 1px solid $primary-color;
+    //   // background-color: $primary-color;
+    //   border: 1px solid $tag-color-2;
+    //   background-color: $tag-color-2;
+    //   color: $tag-color-1;
+    //   @include border-radius(4px, 4px);
+    //   text-decoration: none;
+    //   &:hover {
+    //     background-color: $tag-color-1;
+    //     color: $tag-color-2;
+    //   }
+    // }
+    margin: 0 2px;
     a {
-      font-size: $smallish-font-size;
-      display: inline-block;
-      padding: 0 $tiny-value;
-      border: 1px solid $base-color-link;
-      background-color: $primary-color;
-      color: $base-background;
-      @include border-radius(4px, 4px);
+      font-weight: bold;
+      // font-size: 1em;
+      color: $base-color-link;
       text-decoration: none;
-      &:hover {
-        background-color: $base-background;
+      &:hover, &:active, &:focus, &:visited {
         color: $base-color-link;
       }
     }
@@ -384,7 +428,9 @@ article {
   // padding-top: $medium-value;
   h1 {
     // border: 1px dotted red;
-    margin: 0;
+    // margin: 0;
+    padding-top: $medium-value;
+    padding-left: $small-value;
   }
 }
 
@@ -397,13 +443,17 @@ article {
       margin-left: $medium-plus-value;
       // font-style: italic;
       font-size: 90%;
-      table.highlighttable {
+      div.hilite {
         display: none;
       }
     }
   }
   &>li {
-    padding-bottom: $medium-plus-value;
+    border-top: 1px solid $border-color-light;
+    margin-top: $medium-value;
+    padding: $medium-value $small-value $medium-plus-value $small-value;
+    // padding-bottom: $medium-plus-value;
+    // padding-left: $small-value;
     &:last-child {
       padding-bottom: 0;
     }
@@ -555,6 +605,21 @@ table.highlighttable {
       padding-left: $large-value;
       padding-right: $large-value;
       border-left: 1px solid $border-color-light;
+    }
+  }
+  .posts-list > li,
+  .posts-wrapper h1 {
+    padding-left: $large-value;
+    padding-right: $large-value;
+  }
+
+  #content {
+    > article {
+      // padding-top: $medium-value;
+      // padding-bottom: $medium-plus-value;
+      padding-left: $large-value;
+      padding-right: $large-value;
+      // border-left: 1px solid $border-color-light;
     }
   }
 

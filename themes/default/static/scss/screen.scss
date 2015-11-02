@@ -217,10 +217,10 @@ a.top {
   // padding-top: $medium-value;
   // padding-bottom: $medium-plus-value;
   > article {
-    padding-top: $medium-value;
+    // padding-top: $medium-value;
     padding-bottom: $medium-plus-value;
     padding-left: $small-value;
-    padding-right: $small-value;
+    padding-right: 0;
   }
 }
 
@@ -233,8 +233,9 @@ a.top {
 
 .toc-wrapper {
   display: none;
-  margin: $small-plus-value 0 $large-value $large-value;
+  margin: 0 0 $large-value $large-value;
   width: 250px;
+  // max-width: 250px;
   // border: 1px dotted green;
   // margin-left: $medium-value;
   border-left: 1px solid $border-color-light;
@@ -273,12 +274,32 @@ a.top {
   }
 }
 
+#toc-toggle {
+  // display: inline-block;
+  text-align: center;
+  // border: 1px dashed orange;
+  width: 40px;
+  padding-top: $medium-plus-value;
+  // position: absolute;
+  // top: $extra-large-value * 4 + $medium-plus-value;
+  // right: $small-value;
+  // z-index: 9999;
+}
+
+nav.toc {
+  padding-top: $medium-plus-value;
+}
+
 //                     dP   oo          dP
 //                     88               88
 // .d8888b. 88d888b. d8888P dP .d8888b. 88 .d8888b. .d8888b.
 // 88'  `88 88'  `88   88   88 88'  `"" 88 88ooood8 Y8ooooo.
 // 88.  .88 88         88   88 88.  ... 88 88.  ...       88
 // `88888P8 dP         dP   dP `88888P' dP `88888P' `88888P'
+
+#content > article > div > header {
+  padding-top: $medium-value;
+}
 
 .article-wrapper {
 
@@ -440,7 +461,7 @@ a.more {
   padding: 0;
   article {
     .body {
-      margin-left: $medium-plus-value;
+      // margin-left: $medium-plus-value;
       // font-style: italic;
       font-size: 90%;
       div.hilite {
@@ -596,6 +617,12 @@ table.highlighttable {
     // border: 1px dashed pink;
   }
 
+  #toc-toggle {
+    // position: absolute;
+    // top: $extra-large-value + $medium-value;
+    // right: $large-value;
+  }
+
   .article-wrapper {
 
     padding-left: 25% !important;
@@ -618,7 +645,8 @@ table.highlighttable {
       // padding-top: $medium-value;
       // padding-bottom: $medium-plus-value;
       padding-left: $large-value;
-      padding-right: $large-value;
+      padding-right: 0;
+      // padding-right: $large-value;
       // border-left: 1px solid $border-color-light;
     }
   }
@@ -665,7 +693,7 @@ table.highlighttable {
       }
     }
   }
-
+}
   //                   dP
 //                   88
 // dP.  .dP          88 .d8888b. 88d888b. .d8888b. .d8888b.
@@ -679,15 +707,15 @@ table.highlighttable {
   .toc-wrapper {
     display: block;
   }
-}
-
+  #toc-toggle {
+    display: none;
+  }
   // article {
   //     max-width: 1100px;
   //   .body {
   //     max-width: 768px;
   //   }
   // }
-}
 
 // @media (min-width: $large-screen+1) {
 //   article {
@@ -697,3 +725,4 @@ table.highlighttable {
 //     }
 //   }
 // }
+}

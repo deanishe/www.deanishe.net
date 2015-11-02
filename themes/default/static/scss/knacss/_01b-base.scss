@@ -69,6 +69,9 @@ a {
   &:hover, &:focus, &:active {
     color: $base-color-link-hover;
   }
+  &:visited {
+    color: $base-color-link-visited;
+  }
 }
 
 /* font-sizing for content */

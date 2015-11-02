@@ -12,8 +12,16 @@ Config:
 Theme:
 	- Tags
 	- Archives
+	- Authors
+	Fixed TOC:
+		- Fixed-position TOC
+		- Toggle button/link on right-hand side
+	- Code scrolling overflow @done(15-11-02 10:12)
+	- Code theme @done(15-11-02 13:47)
+
 Pages:
 	- About and/or Contact
 	- Impressum?
+
 Other:
 	- Piwik?

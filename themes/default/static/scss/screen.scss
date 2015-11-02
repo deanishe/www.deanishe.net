@@ -1,19 +1,5 @@
 
-@import 'knacss';
-@import 'hilite';
-
-@import "compass/css3/border-radius";
-
-// Easily add vendor prefixes
-// http://www.sitepoint.com/sass-mixins-kickstart-project/
-@mixin prefix($property, $value, $vendors: webkit moz ms o) {
-  @if $vendors {
-    @each $vendor in $vendors {
-      #{'-' + $vendor + '-' + $property}: #{$value};
-    }
-  }
-  #{$property}: #{$value};
-}
+@import 'base';
 
 // dP                         oo
 // 88
@@ -248,7 +234,7 @@ a.top {
   position: relative;
   z-index: 1;
 
-  &.show {
+  &.visible {
     display: block;
   }
 
@@ -257,16 +243,6 @@ a.top {
     margin: 0;
     padding: 0;
   }
-
-  // a {
-  //   text-decoration: none;
-  //   &:active,
-  //   &:hover {
-  //     span {
-  //       text-decoration: underline;
-  //     }
-  //   }
-  // }
 
   ul {
     list-style: none;
@@ -303,6 +279,7 @@ a.top {
 
   a.top {
     font-weight: bold;
+    padding-bottom: $medium-value;
   }
 }
 
@@ -334,15 +311,6 @@ article {
     // border: 1px dotted pink;
     padding: $medium-value 0 0 0;
   }
-
-  &.entry {
-    // color: $secondary-color;
-    // padding-top: $small-plus-value;
-    // padding-bottom: $medium-plus-value;
-    .body {
-      // margin-left: $medium-plus-value;
-    }
-  }
 }
 
 
@@ -369,6 +337,15 @@ article {
 }
 
 
+//   dP
+//   88
+// d8888P .d8888b. .d8888b. .d8888b.
+//   88   88'  `88 88'  `88 Y8ooooo.
+//   88   88.  .88 88.  .88       88
+//   dP   `88888P8 `8888P88 `88888P'
+//                      .88
+//                  d8888P
+
 .taglist {
   // border: 1px dotted green;
   // display: inline-block;
@@ -381,7 +358,7 @@ article {
       display: inline-block;
       padding: 0 $tiny-value;
       border: 1px solid $base-color-link;
-      background-color: $base-color-link;
+      background-color: $primary-color;
       color: $base-background;
       @include border-radius(4px, 4px);
       text-decoration: none;
@@ -416,9 +393,6 @@ article {
   // border: 1px solid green;
   padding: 0;
   article {
-    // color: $secondary-color;
-    // padding-top: $small-plus-value;
-    // padding-bottom: $medium-plus-value;
     .body {
       margin-left: $medium-plus-value;
       // font-style: italic;
@@ -463,12 +437,38 @@ article {
 // 88.  ... 88.  .88 88.  .88 88.  ...    88.  .88 88 88.  .88 88.  ... 88  `8b.       88
 // `88888P' `88888P' `88888P8 `88888P'    88Y8888' dP `88888P' `88888P' dP   `YP `88888P'
 
+.hilite {
+  overflow-x: auto;
+  width: 100%;
+  border: 1px dotted #ccc;
+  padding: 0;
+  // background-color: #3f3f3f;
+  margin-top: 0.75em;
+}
 
 table.highlighttable {
+  // border: 1px dotted orange;
+  // width: 100%;
+
+  // div.code {
+  //   overflow: auto;
+  // }
+  border: none;
+  margin: 0;
+
+  td.code {
+    width: 100%;
+  }
 
   td.linenos,
   td.code {
     padding: $tiny-plus-value;
+    border: none;
+    // background-color: #002B36;
+  }
+  td.linenos {
+    // border-right: 1px solid rgba(86, 110, 113, .25);
+    border-right: 1px dotted #ccc;
   }
 }
 
@@ -476,30 +476,35 @@ table.highlighttable {
   color: $border-color-dark;
   min-width: 2em;
   text-align: right;
-  // padding-left: 1em;
-  // padding-right: 1em;
   @include prefix(user-select, none);
   vertical-align: top;
   width: 3.5em;
 }
 
+.highlight,
+.linenodiv {
+  font-size: $code-font-size;
+  font-family: $font-stack-monospace;
+}
+
 .highlight {
+  border: none;
+  pre, code {
+    // background: none;
+  }
   pre {
-    overflow-x: auto;
+    overflow: auto;
     white-space: pre;
 
-    * {
-      white-space: nowrap;
+    // * {
+    //   white-space: pre;
+    // }
+    // Override Pygments comments
+    .c, .cb, .cp, .c1, .cs {
+      // font-style: normal;
     }
   }
 }
-
-// div.linenodiv {
-//  display: inline-block;
-//  pre {
-//    display: inline-block;
-//  }
-// }
 
 
 //                           dP oo

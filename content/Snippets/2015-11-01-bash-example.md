@@ -7,7 +7,7 @@ tags: bash
 
 An example of a big, fat bash script posted inline.
 
-```bash
+```sh
 # vim: set filetype=sh:
 
 export LANG=en_GB.UTF-8

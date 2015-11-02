@@ -63,7 +63,7 @@ USE_FOLDER_AS_CATEGORY = True
 # ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 # ARTICLE_SAVE_AS = ARTICLE_URL + 'index.html'
 
-ARTICLE_URL = 'p/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_URL = 'a/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = ARTICLE_URL + 'index.html'
 
 # Author(s)
@@ -95,10 +95,10 @@ TAG_SAVE_AS = TAG_URL + 'index.html'
 TAGS_SAVE_AS = 't/index.html'
 
 # Archives
-YEAR_ARCHIVE_SAVE_AS = 'p/{date:%Y}/index.html'
-MONTH_ARCHIVE_SAVE_AS = 'p/{date:%Y}/{date:%m}/index.html'
-DAY_ARCHIVE_SAVE_AS = 'p/{date:%Y}/{date:%m}/{date:%d}/index.html'
-ARCHIVES_SAVE_AS = 'p/index.html'
+YEAR_ARCHIVE_SAVE_AS = 'a/{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = 'a/{date:%Y}/{date:%m}/index.html'
+DAY_ARCHIVE_SAVE_AS = 'a/{date:%Y}/{date:%m}/{date:%d}/index.html'
+ARCHIVES_SAVE_AS = 'a/index.html'
 
 
 # .8888b                         dP
@@ -159,6 +159,7 @@ MAIN_MENU = [
 # 88                        .88
 # dP                    d8888P
 
+
 PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = [
     'assets',
@@ -169,6 +170,7 @@ PLUGINS = [
 JINJA_EXTENSIONS = ['jinja2.ext.loopcontrols']
 
 # Markdown
+
 MD_EXTENSIONS = [
     'codehilite(css_class=highlight, linenums=True)',
     'extra',
@@ -211,21 +213,10 @@ SITEMAP = {
 # 88.  .88 88.  ... 88 .88'
 # `88888P8 `88888P' 8888P'
 
-LOAD_CONTENT_CACHE = False
 DEVMODE = True
-RELATIVE_URLS = True
-GENTIME = datetime.now()
 
-# Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+if DEVMODE:
+    LOAD_CONTENT_CACHE = False
 
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-
-
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+    RELATIVE_URLS = True
+    GENTIME = datetime.now()

@@ -74,18 +74,23 @@
 					<li><a href="{{ SITEURL }}/">Recent Posts</a></li>
 					<li><a href="{{ SITEURL }}/c/">Categories</a></li>
 					<li><a href="{{ SITEURL }}/t/">Tags</a></li>
-					<li><a href="{{ SITEURL }}/p/">Archives</a></li>
+					<li><a href="{{ SITEURL }}/a/">Archives</a></li>
 				</ul>
 			</div>
 			<section id="content" class="">
 			{% block content %}
 			{% endblock content %}
-			<a href="#top" class="top inbl">^ <span>Top</span></a>
 			</section>
+			<a href="#top" class="top inbl">^ <span>Top</span></a>
 			<footer id="footer" class="txtcenter">
 				Copyright &copy; Dean Jackson 2015
 			</footer>
 		</div>
 	</div> <!-- /#page -->
+	{% if DEVMODE %}
+	<div id="debug">
+		Generated at {{ GENTIME }}.<br/>
+	</div>
+	{% endif %}
 </body>
 </html>

@@ -1,0 +1,49 @@
+baseurl = "http://localhost:1313/"
+languageCode = "en-GB"
+metadataFormat = "yaml"
+title = "deanishe.net"
+theme = "alabastard"
+
+disqusShortname = ""
+googleAnalytics = ""
+
+[params]
+	name = "deanishe.net"
+	description = "dem Dean sein Zeug"
+
+	github_user   = "deanishe"
+	github_repo   = "deanishe.github.io"
+	github_banner = false
+
+	custom_css = []
+	custom_js  = []
+
+	highlightjs = "css/highlight.css"
+	favicon = ""
+	favicons = "images/favicons"
+
+	piwikURL = "deanishe.net/piwik"
+	piwikSiteID = 2
+
+[params.sidebar]
+	logo = "images/deanishe-128.png"
+
+
+	github_button  = false
+	travis_button  = false
+	codecov_button = false
+	gratipay = ""
+
+	show_relations = false
+
+[params.footer]
+	copyright = "[@deanishe](https://twitter.com/deanishe)"
+	show_powered_by = false
+
+[permalinks]
+	page = "/:filename/"
+
+[taxonomies]
+	tag = "tags"
+	category = "categories"
+	platform = "platforms"

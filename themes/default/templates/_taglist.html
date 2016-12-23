@@ -1,8 +1,0 @@
-{% if article.tags %}
-<ul class="taglist">
-	{#<li>Tags:</li>#}
-	{% for tag in article.tags %}
-	<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a></li>
-{% endfor %}
-</ul>
-{% endif %}

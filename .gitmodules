@@ -1,0 +1,3 @@
+[submodule "alabastard"]
+	path = alabastard
+	url = ./themes/alabastard

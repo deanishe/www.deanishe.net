@@ -1,10 +1,10 @@
 <aside class="post-info mod">
 	<span class="published" title="{{ article.date.isoformat() }}">
-		{{ article.locale_date }}
+		Posted on <strong>{{ article.locale_date }}</strong>
 	</span>
 	{% if article.modified %}
 	<span class="modified" title="{{ article.modified.isoformat() }}">
-		(updated: {{ article.locale_modified }})
+		(updated: <strong>{{ article.locale_modified }}</strong>)
 	</span>
 	{% endif %}
 

@@ -27,6 +27,17 @@ h1, h2, h3, h4, h5, h6 {
   @include dark-links();
 }
 
+a {
+  font-weight: bold;
+  text-decoration: none;
+  &:active, &:hover, &:focus {
+    text-decoration: underline;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+}
+
 a.top {
   text-decoration: none;
   &:active,
@@ -35,6 +46,10 @@ a.top {
       text-decoration: underline;
     }
   }
+}
+
+div.top {
+  padding-bottom: $medium-value;
 }
 
 // 88d8b.d8b. .d8888b. 88d888b. dP    dP .d8888b.
@@ -290,6 +305,20 @@ nav.toc {
   padding-top: $medium-plus-value;
 }
 
+.paginator {
+  // border: 1px dashed green;
+  padding: $medium-value $small-value;
+  div {
+    // border: 1px dotted orange;
+  }
+  .previous {
+    // text-align: left;
+  }
+  .next {
+    // text-align: right;
+  }
+}
+
 //                     dP   oo          dP
 //                     88               88
 // .d8888b. 88d888b. d8888P dP .d8888b. 88 .d8888b. .d8888b.
@@ -367,7 +396,7 @@ article {
   }
 }
 
-
+a.arrow,
 a.more {
   color: $base-color;
   text-decoration: none;
@@ -476,7 +505,8 @@ a.more {
     // padding-bottom: $medium-plus-value;
     // padding-left: $small-value;
     &:last-child {
-      padding-bottom: 0;
+      // padding-bottom: 0;
+      border-bottom: 1px solid $border-color-light;
     }
   }
   h1 { font-size: $h2-size; }
@@ -606,6 +636,7 @@ table.highlighttable {
 
 @media (min-width: $medium-screen+1) {
   .header {
+    width: 250px;
     padding-left: $medium-value;
     padding-right: $large-value;
     padding-top: $medium-value;
@@ -625,7 +656,7 @@ table.highlighttable {
 
   .article-wrapper {
 
-    padding-left: 25% !important;
+    padding-left: 250px !important;
     border: none;
 
     >* {
@@ -634,6 +665,13 @@ table.highlighttable {
       border-left: 1px solid $border-color-light;
     }
   }
+
+
+  .paginator {
+    padding-left: $large-value;
+    padding-right: $large-value;
+  }
+
   .posts-list > li,
   .posts-wrapper h1 {
     padding-left: $large-value;
@@ -674,7 +712,7 @@ table.highlighttable {
   }
 
   .article-wrapper {
-    border-left: 1px solid $border-color-light;
+    // border-left: 1px solid $border-color-light;
   }
 
   .submenu {

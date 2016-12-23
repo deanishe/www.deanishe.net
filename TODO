@@ -14,10 +14,11 @@ Theme:
 	- Archives
 	- Authors
 	- Favicons
+	- Move Top above Pagination
 
 	Fixed TOC:
 		- Fixed-position TOC
-		- Toggle button/link on right-hand side
+		- Toggle button/link on right-hand side @done(15-11-03 00:18)
 	- Code scrolling overflow @done(15-11-02 10:12)
 	- Code theme @done(15-11-02 13:47)
 

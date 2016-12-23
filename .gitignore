@@ -1,6 +1,7 @@
 
 ### Pelican ###
 .webassets-cache
+.sass-cache
 *.pid
 /output
 /gulpfile.js

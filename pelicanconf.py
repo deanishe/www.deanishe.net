@@ -6,7 +6,7 @@ AUTHOR = 'deanishe'
 SITENAME = 'www.deanishe.net'
 SITEURL = ''
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 5
 
 TIMEZONE = 'Europe/Berlin'
 
@@ -142,7 +142,7 @@ EXTRA_PATH_METADATA = {}
 THEME = 'themes/default'
 # THEME = 'simple'
 ASSET_SOURCE_PATHS = ['static']
-SHOW_AUTHOR = True
+SHOW_AUTHOR = False
 
 MAIN_MENU = [
     # ('Home', '/'),

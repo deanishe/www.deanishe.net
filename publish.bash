@@ -13,6 +13,8 @@ LOGFILE=$ROOT/publish.log
 
 PELICANOPTS=--debug
 
+rm -rf "$OUTPUTDIR/"*
+
 PELICAN "$CONTENTDIR" -o "$OUTPUTDIR" -s "$SETTINGS" $PELICANOPTS 2>&1 | tee -a "$LOGFILE"
 
 exit ${PIPESTATUS[0]}

@@ -4,8 +4,13 @@ metadataFormat = "yaml"
 title = "deanishe.net"
 theme = "alabastard"
 
+enableRobotsTXT = true
+
 disqusShortname = ""
 googleAnalytics = ""
+
+[blackfriday]
+	sourceRelativeLinksEval = true
 
 [params]
 	name = "deanishe.net"
@@ -19,7 +24,6 @@ googleAnalytics = ""
 	custom_js  = []
 
 	highlightjs = "css/highlight.css"
-	favicon = ""
 	favicons = "images/favicons"
 
 	piwikURL = "deanishe.net/piwik"

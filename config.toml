@@ -4,7 +4,11 @@ metadataFormat = "yaml"
 title = "deanishe.net"
 theme = "alabastard"
 
+paginate = 10
+
 enableRobotsTXT = true
+
+enableGitInfo = true
 
 disqusShortname = ""
 googleAnalytics = ""
@@ -16,26 +20,31 @@ googleAnalytics = ""
 	name = "deanishe.net"
 	description = "dem Dean sein Zeug"
 
-	github_user   = "deanishe"
-	github_repo   = "deanishe.github.io"
-	github_banner = false
-
 	custom_css = []
 	custom_js  = []
 
 	highlightjs = "css/highlight.css"
 	favicons = "images/favicons"
 
+	# Analytics
 	piwikURL = "deanishe.net/piwik"
 	piwikSiteID = 2
+
+	# Social
+	# github_user   = "deanishe"
+	# github_repo   = "deanishe.github.io"
+	githubUsername   = "deanishe"
+	githubRepo   = "deanishe.github.io"
+	githubBanner = false
+	twitterUsername = "deanishe"
 
 [params.sidebar]
 	logo = "images/deanishe-128.png"
 
 
-	github_button  = false
-	travis_button  = false
-	codecov_button = false
+	githubButton  = false
+	travisButton  = false
+	codecovButton = false
 	gratipay = ""
 
 	show_relations = false

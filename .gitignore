@@ -2,6 +2,8 @@
 ### Hugo ###
 .sass-cache
 .autoenv.zsh
+# output directory
+/public
 
 # Created by https://www.gitignore.io
 *.log

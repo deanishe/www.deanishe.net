@@ -1,9 +1,9 @@
 ---
-date: 2016-12-22T10:21:49+01:00
-description: "Index of snippets"
+date: 2016-12-22
+description: "Index of snippets type"
 draft: true
 tags: []
-title: "Snippets"
+title: "Scripts & Snippets"
 ---
 
-Useful snippets.
+Mostly Python, zsh and Go.

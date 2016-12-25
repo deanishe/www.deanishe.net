@@ -1,5 +1,93 @@
 [
   {
+    "id": "5069879712",
+    "type": "PushEvent",
+    "actor": {
+      "id": 747913,
+      "login": "deanishe",
+      "display_login": "deanishe",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/deanishe",
+      "avatar_url": "https://avatars.githubusercontent.com/u/747913?"
+    },
+    "repo": {
+      "id": 17490415,
+      "name": "deanishe/deanishe.github.io",
+      "url": "https://api.github.com/repos/deanishe/deanishe.github.io"
+    },
+    "payload": {
+      "push_id": 1472681232,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "de996a7724180fcd757a51ddf17178baa4bbc39a",
+      "before": "904d50465bee0cbed979b89edb3931ec3443799e",
+      "commits": [
+        {
+          "sha": "de996a7724180fcd757a51ddf17178baa4bbc39a",
+          "author": {
+            "email": "deanishe@deanishe.net",
+            "name": "Dean Jackson"
+          },
+          "message": "rebuilt site Sun Dec 25 22:11:09 CET 2016",
+          "distinct": true,
+          "url": "https://api.github.com/repos/deanishe/deanishe.github.io/commits/de996a7724180fcd757a51ddf17178baa4bbc39a"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2016-12-25T21:11:14Z"
+  },
+  {
+    "id": "5069842784",
+    "type": "PushEvent",
+    "actor": {
+      "id": 747913,
+      "login": "deanishe",
+      "display_login": "deanishe",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/deanishe",
+      "avatar_url": "https://avatars.githubusercontent.com/u/747913?"
+    },
+    "repo": {
+      "id": 17490415,
+      "name": "deanishe/deanishe.github.io",
+      "url": "https://api.github.com/repos/deanishe/deanishe.github.io"
+    },
+    "payload": {
+      "push_id": 1472665893,
+      "size": 2,
+      "distinct_size": 2,
+      "ref": "refs/heads/master",
+      "head": "904d50465bee0cbed979b89edb3931ec3443799e",
+      "before": "188c2048f490a106cee23fd3137ee8d07e7df661",
+      "commits": [
+        {
+          "sha": "27b168399fc06758ac625fab948ccf41b859f23c",
+          "author": {
+            "email": "deanishe@deanishe.net",
+            "name": "Dean Jackson"
+          },
+          "message": "rebuilt site Sun Dec 25 21:28:54 CET 2016",
+          "distinct": true,
+          "url": "https://api.github.com/repos/deanishe/deanishe.github.io/commits/27b168399fc06758ac625fab948ccf41b859f23c"
+        },
+        {
+          "sha": "904d50465bee0cbed979b89edb3931ec3443799e",
+          "author": {
+            "email": "deanishe@deanishe.net",
+            "name": "Dean Jackson"
+          },
+          "message": "rebuilt site Sun Dec 25 21:30:07 CET 2016",
+          "distinct": true,
+          "url": "https://api.github.com/repos/deanishe/deanishe.github.io/commits/904d50465bee0cbed979b89edb3931ec3443799e"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2016-12-25T20:30:14Z"
+  },
+  {
     "id": "5068765234",
     "type": "PushEvent",
     "actor": {
@@ -1729,235 +1817,5 @@
     },
     "public": true,
     "created_at": "2016-11-15T12:21:25Z"
-  },
-  {
-    "id": "4866636149",
-    "type": "IssueCommentEvent",
-    "actor": {
-      "id": 747913,
-      "login": "deanishe",
-      "display_login": "deanishe",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/deanishe",
-      "avatar_url": "https://avatars.githubusercontent.com/u/747913?"
-    },
-    "repo": {
-      "id": 17055028,
-      "name": "deanishe/alfred-workflow",
-      "url": "https://api.github.com/repos/deanishe/alfred-workflow"
-    },
-    "payload": {
-      "action": "created",
-      "issue": {
-        "url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85",
-        "repository_url": "https://api.github.com/repos/deanishe/alfred-workflow",
-        "labels_url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85/labels{/name}",
-        "comments_url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85/comments",
-        "events_url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85/events",
-        "html_url": "https://github.com/deanishe/alfred-workflow/issues/85",
-        "id": 158509573,
-        "number": 85,
-        "title": "How best to support workflow variables?",
-        "user": {
-          "login": "deanishe",
-          "id": 747913,
-          "avatar_url": "https://avatars.githubusercontent.com/u/747913?v=3",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/deanishe",
-          "html_url": "https://github.com/deanishe",
-          "followers_url": "https://api.github.com/users/deanishe/followers",
-          "following_url": "https://api.github.com/users/deanishe/following{/other_user}",
-          "gists_url": "https://api.github.com/users/deanishe/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/deanishe/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/deanishe/subscriptions",
-          "organizations_url": "https://api.github.com/users/deanishe/orgs",
-          "repos_url": "https://api.github.com/users/deanishe/repos",
-          "events_url": "https://api.github.com/users/deanishe/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/deanishe/received_events",
-          "type": "User",
-          "site_admin": false
-        },
-        "labels": [
-          {
-            "id": 400006830,
-            "url": "https://api.github.com/repos/deanishe/alfred-workflow/labels/alfred3",
-            "name": "alfred3",
-            "color": "5319e7",
-            "default": false
-          },
-          {
-            "id": 157795287,
-            "url": "https://api.github.com/repos/deanishe/alfred-workflow/labels/api-change",
-            "name": "api-change",
-            "color": "eb6420",
-            "default": false
-          },
-          {
-            "id": 81891176,
-            "url": "https://api.github.com/repos/deanishe/alfred-workflow/labels/question",
-            "name": "question",
-            "color": "cc317c",
-            "default": true
-          }
-        ],
-        "state": "open",
-        "locked": false,
-        "assignee": null,
-        "assignees": [
-
-        ],
-        "milestone": null,
-        "comments": 10,
-        "created_at": "2016-06-04T15:29:35Z",
-        "updated_at": "2016-11-15T00:34:41Z",
-        "closed_at": null,
-        "body": "So in Alfred 3 you can set variables from your Script Filter results by setting `arg` to a JSON-encoded `{\"alfredworkflow\":{\"arg\":...}}` dictionary.\n\nI've been exploring this mechanism in a [Go library](https://gogs.deanishe.net/deanishe/awgo) (Go's a PITA for this, btw). How I currently have that one working is that you can set variables at the `Workflow`, `Item` or `Modifier` level. When you create a new `Item` or `Modifier`, it inherits its parent's variables _at the time of creation_. So you can do:\n\n``` go\nwf.SetVar(\"api_key\", api_key) // Inherited by all child Items\n\nit := wf.NewItem(\"Item Title\")\nit.Subtitle = \"Open in New Window\"\nit.SetVar(\"uuid\", uuid)  // Inherited by child Modifiers\n\n// CMD\nm := it.NewModifier(\"cmd\")\nm.Subtitle = \"Open in New Tab\"\nm.SetVar(\"open_in_tab\", \"1\")\n\n// ALT\nm = it.NewModifier(\"alt\")\nm.Subtitle = \"Open in Private Window\"\nm.SetVar(\"open_in_private\", \"1\")\n\nit.SetVar(\"open_in_win\", \"1\") // Only set on Item, not Modifiers\n```\n\nIs that a solid solution for Alfred-Workflow? Too complex? Should variables (and arg) be resolved at feedback-generation time instead (i.e. `vars = wf.vars.copy(); vars.update(item.vars); vars.update(mod.vars)`)?\n\nOr is variable inheritance a fundamentally bad idea?\n\nCould maybe even make different `Feedback` classes with different variable inheritance behaviour.\n"
-      },
-      "comment": {
-        "url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/comments/260509891",
-        "html_url": "https://github.com/deanishe/alfred-workflow/issues/85#issuecomment-260509891",
-        "issue_url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85",
-        "id": 260509891,
-        "user": {
-          "login": "deanishe",
-          "id": 747913,
-          "avatar_url": "https://avatars.githubusercontent.com/u/747913?v=3",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/deanishe",
-          "html_url": "https://github.com/deanishe",
-          "followers_url": "https://api.github.com/users/deanishe/followers",
-          "following_url": "https://api.github.com/users/deanishe/following{/other_user}",
-          "gists_url": "https://api.github.com/users/deanishe/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/deanishe/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/deanishe/subscriptions",
-          "organizations_url": "https://api.github.com/users/deanishe/orgs",
-          "repos_url": "https://api.github.com/users/deanishe/repos",
-          "events_url": "https://api.github.com/users/deanishe/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/deanishe/received_events",
-          "type": "User",
-          "site_admin": false
-        },
-        "created_at": "2016-11-15T00:34:40Z",
-        "updated_at": "2016-11-15T00:34:40Z",
-        "body": "Will do. I'll have to have a think about how best to handle workflow and environment variables.\r\n\r\nThe implementation changed in 6b1fc2c, as Alfred 3.2 added \"real\" top-level workflow variables Previously `Workflow3.setvar()` was just a convenience to set variables on all `Item3` objects. Now it really sets top-level workflow variables (not that there's a lot of difference in practice).\r\n\r\nI suspect what @ViViDboarder suggested is how most people would expect and/or prefer it to work, but I'm leery of conflating the \"real\" environment (i.e. `os.environ`) and workflow variables too much because they're not the same. For example, `$HOME` isn't a workflow variable (i.e. you can't do `{var:HOME}` in an Args & Vars Utility).\r\n\r\nIf `Workflow3.getvar()` gets a value from `os.environ`, should it \"import\" the variable, so it *is* set for downstream workflow objects (e.g. `Workflow.getvar('HOME')` would automatically make `{var:HOME}` work downstream)? If not, a user might think they're using a workflow variable when it's actually from `os.environ` and won't be visible to downstream objects.\r\n\r\nIf `Workflow3.getvar()` reads from `os.environ`, should `Workflow3.setvar()` also write to `os.environ` (so the variables would also be set when you call `run_in_background()` or `subprocess.call()`, and not just for downstream objects)?"
-      }
-    },
-    "public": true,
-    "created_at": "2016-11-15T00:34:41Z"
-  },
-  {
-    "id": "4860173522",
-    "type": "IssueCommentEvent",
-    "actor": {
-      "id": 747913,
-      "login": "deanishe",
-      "display_login": "deanishe",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/deanishe",
-      "avatar_url": "https://avatars.githubusercontent.com/u/747913?"
-    },
-    "repo": {
-      "id": 17055028,
-      "name": "deanishe/alfred-workflow",
-      "url": "https://api.github.com/repos/deanishe/alfred-workflow"
-    },
-    "payload": {
-      "action": "created",
-      "issue": {
-        "url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85",
-        "repository_url": "https://api.github.com/repos/deanishe/alfred-workflow",
-        "labels_url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85/labels{/name}",
-        "comments_url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85/comments",
-        "events_url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85/events",
-        "html_url": "https://github.com/deanishe/alfred-workflow/issues/85",
-        "id": 158509573,
-        "number": 85,
-        "title": "How best to support workflow variables?",
-        "user": {
-          "login": "deanishe",
-          "id": 747913,
-          "avatar_url": "https://avatars.githubusercontent.com/u/747913?v=3",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/deanishe",
-          "html_url": "https://github.com/deanishe",
-          "followers_url": "https://api.github.com/users/deanishe/followers",
-          "following_url": "https://api.github.com/users/deanishe/following{/other_user}",
-          "gists_url": "https://api.github.com/users/deanishe/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/deanishe/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/deanishe/subscriptions",
-          "organizations_url": "https://api.github.com/users/deanishe/orgs",
-          "repos_url": "https://api.github.com/users/deanishe/repos",
-          "events_url": "https://api.github.com/users/deanishe/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/deanishe/received_events",
-          "type": "User",
-          "site_admin": false
-        },
-        "labels": [
-          {
-            "id": 400006830,
-            "url": "https://api.github.com/repos/deanishe/alfred-workflow/labels/alfred3",
-            "name": "alfred3",
-            "color": "5319e7",
-            "default": false
-          },
-          {
-            "id": 157795287,
-            "url": "https://api.github.com/repos/deanishe/alfred-workflow/labels/api-change",
-            "name": "api-change",
-            "color": "eb6420",
-            "default": false
-          },
-          {
-            "id": 81891176,
-            "url": "https://api.github.com/repos/deanishe/alfred-workflow/labels/question",
-            "name": "question",
-            "color": "cc317c",
-            "default": true
-          }
-        ],
-        "state": "open",
-        "locked": false,
-        "assignee": null,
-        "assignees": [
-
-        ],
-        "milestone": null,
-        "comments": 8,
-        "created_at": "2016-06-04T15:29:35Z",
-        "updated_at": "2016-11-14T00:16:32Z",
-        "closed_at": null,
-        "body": "So in Alfred 3 you can set variables from your Script Filter results by setting `arg` to a JSON-encoded `{\"alfredworkflow\":{\"arg\":...}}` dictionary.\n\nI've been exploring this mechanism in a [Go library](https://gogs.deanishe.net/deanishe/awgo) (Go's a PITA for this, btw). How I currently have that one working is that you can set variables at the `Workflow`, `Item` or `Modifier` level. When you create a new `Item` or `Modifier`, it inherits its parent's variables _at the time of creation_. So you can do:\n\n``` go\nwf.SetVar(\"api_key\", api_key) // Inherited by all child Items\n\nit := wf.NewItem(\"Item Title\")\nit.Subtitle = \"Open in New Window\"\nit.SetVar(\"uuid\", uuid)  // Inherited by child Modifiers\n\n// CMD\nm := it.NewModifier(\"cmd\")\nm.Subtitle = \"Open in New Tab\"\nm.SetVar(\"open_in_tab\", \"1\")\n\n// ALT\nm = it.NewModifier(\"alt\")\nm.Subtitle = \"Open in Private Window\"\nm.SetVar(\"open_in_private\", \"1\")\n\nit.SetVar(\"open_in_win\", \"1\") // Only set on Item, not Modifiers\n```\n\nIs that a solid solution for Alfred-Workflow? Too complex? Should variables (and arg) be resolved at feedback-generation time instead (i.e. `vars = wf.vars.copy(); vars.update(item.vars); vars.update(mod.vars)`)?\n\nOr is variable inheritance a fundamentally bad idea?\n\nCould maybe even make different `Feedback` classes with different variable inheritance behaviour.\n"
-      },
-      "comment": {
-        "url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/comments/260224113",
-        "html_url": "https://github.com/deanishe/alfred-workflow/issues/85#issuecomment-260224113",
-        "issue_url": "https://api.github.com/repos/deanishe/alfred-workflow/issues/85",
-        "id": 260224113,
-        "user": {
-          "login": "deanishe",
-          "id": 747913,
-          "avatar_url": "https://avatars.githubusercontent.com/u/747913?v=3",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/deanishe",
-          "html_url": "https://github.com/deanishe",
-          "followers_url": "https://api.github.com/users/deanishe/followers",
-          "following_url": "https://api.github.com/users/deanishe/following{/other_user}",
-          "gists_url": "https://api.github.com/users/deanishe/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/deanishe/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/deanishe/subscriptions",
-          "organizations_url": "https://api.github.com/users/deanishe/orgs",
-          "repos_url": "https://api.github.com/users/deanishe/repos",
-          "events_url": "https://api.github.com/users/deanishe/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/deanishe/received_events",
-          "type": "User",
-          "site_admin": false
-        },
-        "created_at": "2016-11-14T00:16:32Z",
-        "updated_at": "2016-11-14T00:16:32Z",
-        "body": "I explained this in the comment above yours. A newly-created `Workflows3` object has no variables."
-      }
-    },
-    "public": true,
-    "created_at": "2016-11-14T00:16:32Z"
   }
 ]

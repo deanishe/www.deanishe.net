@@ -127,8 +127,13 @@ log "Generating site..."
 hugo
 
 $do_publish && {
+  log "Committing update..."
   cd "$buildir"
-  log "$( pwd )"
+  msg="rebuilt site $( date )"
+  git add -A
+  git commit -m "$msg"
+  log "Pushing site to GitHub Pages..."
+  git push origin master
   cd -
 }
 

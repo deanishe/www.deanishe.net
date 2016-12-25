@@ -26,7 +26,7 @@ fatal() {
 
 usage() {
     cat <<EOS
-manage [options]
+manage [options] [<commit-msg>]
 
 Update/generate/publish blog.
 
@@ -98,8 +98,10 @@ while getopts ":cdhl:pu:" opt; do
 done
 shift $((OPTIND-1))
 
-cd "$here" &>/dev/null
+msg="$1"
+test -n "$msg" || msg="rebuilt site $( date )"
 
+cd "$here" &>/dev/null
 
 $do_download && {
   test -n "$ghuser" || fatal "GitHub username not specified"
@@ -129,7 +131,6 @@ hugo
 $do_publish && {
   log "Committing update..."
   cd "$buildir"
-  msg="rebuilt site $( date )"
   git add -A
   git commit -m "$msg"
   log "Pushing site to GitHub Pages..."

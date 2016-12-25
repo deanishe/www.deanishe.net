@@ -1,6 +1,6 @@
 ---
 date: 2016-12-22T19:14:00+01:00
-draft: true
+draft: false
 tags: ["python", "alfred"]
 title: "Workflow build script for Alfred"
 platforms: ["OS X", "Alfred"]
@@ -8,9 +8,13 @@ platforms: ["OS X", "Alfred"]
 
 A script for building [Alfred][alfred] workflows. Focussed on Python-based workflows.
 
+Creates an `.alfredworkflow` file from the contents of the specified
+directory. The generated file's name is based on the workflow's name
+and version extracted from `info.plist`.
+
 <!--more-->
 
-```
+```none
 workflow-build [options] <workflow-dir>
 
 Build Alfred Workflows.

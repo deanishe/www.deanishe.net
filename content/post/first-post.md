@@ -1,18 +1,18 @@
 ---
-title: "First Post"
-date: 2016-12-21
+title: First Post
+date: 2016-12-25T15:30:46+01:00
 draft: false
-tags: ["drang", "fieber"]
+tags: []
 ---
 
-Et aut sed repellat. Placeat nam at voluptas dolorum reprehenderit ipsam magni.
-
-Et et qui assumenda ut dolorem sed ducimus. Voluptas quam totam molestiae impedit. Dolorem labore a aut enim consequatur. Ipsum doloremque voluptate provident possimus reiciendis nostrum. At dolore qui velit nobis.
+Finally, a website to put my stuff on. As I'm unlikely to post
+very often, most of it is composed of feeds from GitHub and
+Pinboard.
 
 <!--more-->
 
-Consequatur quia neque sunt veritatis. Ipsam ipsam fugiat voluptas non facilis. Iste amet dolorem tempore repellat deserunt unde est.
-
-Harum repudiandae exercitationem qui occaecati ut at sapiente. Autem excepturi ducimus doloribus accusantium inventore. Sunt fugiat alias tempora excepturi provident delectus. Rem tenetur odio nam nihil nihil voluptas voluptatem.
-
-Et quis consectetur quis quo facere repellat debitis. Ipsam quia quisquam non perspiciatis at. Eaque odit esse assumenda quos molestias.
+- [GitHub projects I've most recently pushed](/project/)
+- [Links I've recently saved](/link/)
+- [Useful snippets of code and scripts that I've written](/snippet/)
+  (mostly gists)
+- [Other scribblings not focussed on source code](/post/)

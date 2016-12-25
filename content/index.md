@@ -5,4 +5,4 @@ draft: false
 type: homepage
 ---
 
-No guarantees for the correctness of the nonsense herein.
+Here be nonsense.

@@ -1,8 +1,16 @@
-baseurl = "http://localhost:1313/"
+baseURL = "http://www.deanishe.net/"
 languageCode = "en-GB"
-metadataFormat = "yaml"
 title = "deanishe.net"
+
+contentDir = "content"
+layoutDir = "layouts"
+publishDir = "public"
 theme = "alabastard"
+
+canonifyURLs = false
+relativeURLs = true
+
+metadataFormat = "yaml"
 
 paginate = 10
 
@@ -31,16 +39,17 @@ googleAnalytics = ""
 	piwikSiteID = 2
 
 	# Social
-	# github_user   = "deanishe"
-	# github_repo   = "deanishe.github.io"
 	githubUsername   = "deanishe"
 	githubRepo   = "deanishe.github.io"
 	githubBanner = false
 	twitterUsername = "deanishe"
 
+	# Homepage
+	githubRecentEvents = 10
+	recentPosts = 5
+
 [params.sidebar]
 	logo = "images/deanishe-128.png"
-
 
 	githubButton  = false
 	travisButton  = false
@@ -54,7 +63,8 @@ googleAnalytics = ""
 	show_powered_by = false
 
 [permalinks]
-	page = "/:filename/"
+	# Any item with "type=toplevel" will be placed at the top level
+	toplevel = "/:filename/"
 
 [taxonomies]
 	tag = "tags"

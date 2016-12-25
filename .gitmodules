@@ -1,3 +1,7 @@
 [submodule "alabastard"]
 	path = alabastard
 	url = ./themes/alabastard
+[submodule "public"]
+	path = public
+	url = git@github.com:deanishe/deanishe.github.io
+	branch = master

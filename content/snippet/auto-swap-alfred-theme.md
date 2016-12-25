@@ -1,6 +1,6 @@
 ---
 title: Auto-swap day/night Alfred themes
-date: 2016-12-24T16:44:11+01:00
+date: 2016-12-25T16:32:05+01:00
 draft: false
 platforms: ["Alfred", "OS X"]
 tags: ["alfred", "theme", "launchd", "flux"]

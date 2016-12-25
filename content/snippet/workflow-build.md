@@ -1,8 +1,8 @@
 ---
-date: 2016-12-22T19:14:00+01:00
+title: "Workflow build script for Alfred"
+date: 2016-12-25T16:33:14+01:00
 draft: false
 tags: ["python", "alfred"]
-title: "Workflow build script for Alfred"
 platforms: ["OS X", "Alfred"]
 ---
 

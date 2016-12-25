@@ -1,8 +1,8 @@
 ---
-date: 2016-12-22T10:21:49+01:00
-draft: false
-tags: ["shell"]
 title: "List files in a directory"
+date: 2016-12-22T10:21:49+01:00
+draft: true
+tags: ["shell"]
 platform: ["sh"]
 ---
 

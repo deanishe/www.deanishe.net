@@ -1,7 +1,7 @@
 ---
 title: "About"
 type: "toplevel"
-date: 2016-12-20
+date: 2016-12-20T11:23:12+01:00
 draft: false
 tags: []
 ---
@@ -15,13 +15,14 @@ Stuff I like:
 
 Stuff I used to make the site:
 
-- [Hugo][hugo] static site generator.
+- [Hugo][hugo] static site generator
 - [Alabastard theme][alabastard] based on the
   [Hugo Alabaster theme][alabaster-hugo] based on the
-  [Sphinx Alabaster theme][alabaster-sphinx].
-- [Font Awesome][awesome] for some icons, generated with [IconServer][icongen].
-- [Weather Icons][weather].
-- [GitHub Pages][gh-pages].
+  [Sphinx Alabaster theme][alabaster-sphinx]
+- [Font Awesome][awesome] for some icons, generated with
+  [IconServer][icongen]
+- [Weather Icons][weather]
+- [GitHub Pages][gh-pages]
 
 
 [alabastard]: https://github.com/deanishe/alabastard

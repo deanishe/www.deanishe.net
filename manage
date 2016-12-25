@@ -1,0 +1,136 @@
+#!/usr/bin/env zsh
+
+set -e
+
+here="$( cd "$( dirname "$0" )"; pwd )"
+bin="$here/themes/alabastard/bin"
+
+buildir="$here/public"
+datadir="$here/data"
+out_forecast="$datadir/darksky/forecast.json"
+out_repos="$datadir/github/repos.json"
+out_events="$datadir/github/events.json"
+out_pinboard="$datadir/pinboard/posts.json"
+
+
+# log <arg>... | echo args to STDERR
+log() {
+  echo "$@" >&2
+}
+
+# log <msg> | log <msg> and exit program
+fatal() {
+  log "fatal error: $1"
+  exit 1
+}
+
+usage() {
+    cat <<EOS
+manage [options]
+
+Update/generate/publish blog.
+
+Publish the blog with -p. Fetch new API data from GitHub,
+DarkSky and Pinboard with -d.
+
+
+Usage:
+    manage [-c] [-d] [-p] [-u <username>] [-l <location>]
+    manage -h
+
+
+Options:
+    -c             Clean build directory before generating site
+    -d             Download JSON data from GitHub and/or Pinboard
+    -h             Show this help message and exit
+    -l <location>  Location (lat,lon) for DarkSky forecast
+    -u <username>  GitHub username to get repos and events for
+    -p             Publish site to GitHub Pages
+
+
+Environment variables:
+
+  Some parameters can be specified via environment variable:
+
+  | Parameter        | Environment variable |
+  |------------------|----------------------|
+  | GitHub username  | GITHUB_USERNAME      |
+  | DarkSky location | DARKSKY_LOCATION     |
+
+
+EOS
+}
+
+# defaults
+do_download=false
+do_publish=false
+ghuser="$GITHUB_USERNAME"
+dslocation="$DARKSKY_LOCATION"
+do_clean=false
+
+
+while getopts ":cdhl:pu:" opt; do
+  case $opt in
+    c)
+      do_clean=true
+      ;;
+    d)
+      do_download=true
+      ;;
+    l)
+      dslocation="$OPTARG"
+      ;;
+    p)
+      do_publish=true
+      ;;
+    u)
+      ghuser="$OPTARG"
+      ;;
+    h)
+      usage
+      exit 0
+      ;;
+    \?)
+      log "Invalid option: -$OPTARG"
+      exit 1
+      ;;
+  esac
+done
+shift $((OPTIND-1))
+
+cd "$here" &>/dev/null
+
+
+$do_download && {
+  test -n "$ghuser" || fatal "GitHub username not specified"
+  test -n "$dslocation" || fatal "DarkSky location not specified"
+
+  mkdir -p "$datadir"/{pinboard,github,darksky}
+
+  log 'Fetching recent GitHub repos...'
+  "$bin/github-repos" "$ghuser" > "$out_repos"
+  log 'Fetching recent GitHub events...'
+  "$bin/github-events" "$ghuser" > "$out_events"
+  log 'Fetching DarkSky forecast...'
+  "$bin/darksky-forecast" "$dslocation" > "$out_forecast"
+  log 'Fetching recent Pinboard posts...'
+  "$bin/pinboard-recent" > "$out_pinboard"
+}
+
+$do_clean && {
+  log "Cleaning build directory ..."
+  test -d "$buildir" && rm -rf "$buildir"/*
+  mkdir -p "$buildir"
+}
+
+log "Generating site..."
+hugo
+
+$do_publish && {
+  cd "$buildir"
+  log "$( pwd )"
+  cd -
+}
+
+cd - &>/dev/null
+exit 0

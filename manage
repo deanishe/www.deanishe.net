@@ -7,6 +7,7 @@ bin="$here/themes/alabastard/bin"
 
 buildir="$here/public"
 datadir="$here/data"
+
 out_forecast="$datadir/darksky/forecast.json"
 out_repos="$datadir/github/repos.json"
 out_events="$datadir/github/events.json"
@@ -30,61 +31,64 @@ manage [options] [<commit-msg>]
 
 Update/generate/publish blog.
 
-Publish the blog with -p. Fetch new API data from GitHub,
-DarkSky and Pinboard with -d.
-
 
 Usage:
-    manage [-c] [-d] [-p] [-u <username>] [-l <location>]
+    manage [-c] [-e] [-f] [-l] [-p] [-r]
     manage -h
 
 
 Options:
     -c             Clean build directory before generating site
-    -d             Download JSON data from GitHub and/or Pinboard
+    -e             Fetch GitHub events
+    -f             Fetch DarkSky forecast
     -h             Show this help message and exit
-    -l <location>  Location (lat,lon) for DarkSky forecast
-    -u <username>  GitHub username to get repos and events for
+    -l             Fetch Pinboard posts
     -p             Publish site to GitHub Pages
+    -r             Fetch GitHub repos
 
 
 Environment variables:
 
-  Some parameters can be specified via environment variable:
+  The called scripts require that certain environment
+  variables be set.
 
-  | Parameter        | Environment variable |
-  |------------------|----------------------|
-  | GitHub username  | GITHUB_USERNAME      |
-  | DarkSky location | DARKSKY_LOCATION     |
-
+  DARKSKY_API_TOKEN    Required by forecast
+  DARKSKY_LOCATION     Required by forecast
+  GITHUB_USERNAME      Required by github
+  PINBOARD_API_TOKEN   Required by pinboard-public
 
 EOS
 }
 
 # defaults
-do_download=false
-do_publish=false
-ghuser="$GITHUB_USERNAME"
-dslocation="$DARKSKY_LOCATION"
 do_clean=false
+do_download=false
+do_events=false
+do_forecast=false
+do_pinboard=false
+do_repos=false
+do_publish=false
 
 
-while getopts ":cdhl:pu:" opt; do
+while getopts ":cefhlpr" opt; do
   case $opt in
     c)
       do_clean=true
       ;;
-    d)
-      do_download=true
+    e)
+      do_events=true
+      ;;
+    f)
+      do_forecast=true
       ;;
     l)
-      dslocation="$OPTARG"
+      do_pinboard=true
+      ;;
+    r)
+      do_repos=true
       ;;
     p)
       do_publish=true
-      ;;
-    u)
-      ghuser="$OPTARG"
       ;;
     h)
       usage
@@ -92,6 +96,7 @@ while getopts ":cdhl:pu:" opt; do
       ;;
     \?)
       log "Invalid option: -$OPTARG"
+      usage
       exit 1
       ;;
   esac
@@ -99,25 +104,53 @@ done
 shift $((OPTIND-1))
 
 msg="$1"
-test -n "$msg" || msg="rebuilt site $( date )"
 
 cd "$here" &>/dev/null
 
-$do_download && {
-  test -n "$ghuser" || fatal "GitHub username not specified"
-  test -n "$dslocation" || fatal "DarkSky location not specified"
-
-  mkdir -p "$datadir"/{pinboard,github,darksky}
-
-  log 'Fetching recent GitHub repos...'
-  "$bin/github-repos" "$ghuser" > "$out_repos"
+$do_events && {
+  test -n "$GITHUB_USERNAME" || fatal "GitHub username not set"
+  mkdir -p "$datadir/github"
   log 'Fetching recent GitHub events...'
-  "$bin/github-events" "$ghuser" > "$out_events"
-  log 'Fetching DarkSky forecast...'
-  "$bin/darksky-forecast" "$dslocation" > "$out_forecast"
-  log 'Fetching recent Pinboard posts...'
+  "$bin/github" events "$out_events"
+}
+
+$do_repos && {
+  test -n "$GITHUB_USERNAME" || fatal "GitHub username not set"
+  mkdir -p "$datadir/github"
+  log 'Fetching recently-updated GitHub repos...'
+  "$bin/github" repos "$out_repos"
+}
+
+$do_forecast && {
+  test -n "$DARKSKY_API_TOKEN" || fatal "DarkSky API token not set"
+  test -n "$DARKSKY_LOCATION" || fatal "DarkSky location not set"
+  mkdir -p "$datadir/darksky"
+  log 'Fetching weather forecast...'
+  "$bin/forecast" "$out_forecast"
+}
+
+$do_pinboard && {
+  test -n "$PINBOARD_API_TOKEN" || fatal "Pinboard API token not set"
+  mkdir -p "$datadir/pinboard"
+  log 'Fetching Pinboard posts...'
   "$bin/pinboard-public" "$out_pinboard"
 }
+
+# $do_download && {
+#   test -n "$ghuser" || fatal "GitHub username not specified"
+#   test -n "$dslocation" || fatal "DarkSky location not specified"
+
+#   mkdir -p "$datadir"/{pinboard,github,darksky}
+
+#   log 'Fetching recent GitHub repos...'
+#   "$bin/github" repos "$ghuser" "$out_repos"
+#   log 'Fetching recent GitHub events...'
+#   "$bin/github" events "$ghuser" "$out_events"
+#   log 'Fetching DarkSky forecast...'
+#   "$bin/forecast" --location "$dslocation" "$out_forecast"
+#   log 'Fetching recent Pinboard posts...'
+#   "$bin/pinboard-public" "$out_pinboard"
+# }
 
 $do_clean && {
   log "Cleaning build directory ..."
@@ -129,6 +162,7 @@ log "Generating site..."
 hugo
 
 $do_publish && {
+  test -n "$msg" || msg="rebuilt site $( date )"
   log "Committing update..."
   cd "$buildir"
   git add -A

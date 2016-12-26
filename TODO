@@ -1,0 +1,47 @@
+Theme:
+
+	JS:
+		- lazy-load all 3rd-party CSS/JS based on presence of elements?
+		e.g. "i.wi" for Weather Icons or "i.octicon" for Octicons
+
+	GitHub event types:
+		- MemberEvent
+		- PublicEvent
+		- PullRequestReviewEvent
+		- PullRequestReviewCommentEvent
+
+	Data:
+		- Rewrite Pinboard script to pull all posts and only save shared ones
+		- Combine data scripts into one?
+
+Content:
+
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+	- TeamEvent (not visible in timeline) @done(16-12-26 10:53) @project(GitHub event types)
+	- TeamAddEvent (not visible in timeline) @done(16-12-26 10:53) @project(GitHub event types)
+	- StatusEvent (not visible in timeline) @done(16-12-26 10:53) @project(GitHub event types)
+	- RepositoryEvent (not visible in timeline) @done(16-12-26 10:53) @project(GitHub event types)
+	- PageBuildEvent (not visible in timeline) @done(16-12-26 10:53) @project(GitHub event types)
+	- OrganizationEvent (not visible in timeline) @done(16-12-26 10:52) @project(GitHub event types)
+	- MilestoneEvent (not visible in timeline) @done(16-12-26 10:52) @project(GitHub event types)
+	- MembershipEvent (not visible in timeline) @done(16-12-26 10:52) @project(GitHub event types)
+	- LabelEvent (not visible in timeline) @done(16-12-26 10:52) @project(GitHub event types)
+	- DeploymentStatusEvent (not visible in timeline) @done(16-12-26 10:52) @project(GitHub event types)
+	- DeploymentEvent (not visible in timeline) @done(16-12-26 10:52) @project(GitHub event types)
+	- GistEvent (no longer implemented) @done(16-12-26 10:44) @project(GitHub event types)
+	- ForkApplyEvent (no longer implemented) @done(16-12-26 10:44) @project(GitHub event types)
+	- FollowEvent (no longer implemented) @done(16-12-26 10:44) @project(GitHub event types)
+	- DownloadEvent (no longer implemented) @done(16-12-26 10:44) @project(GitHub event types)
+	- WatchEvent @done(16-12-26 10:40) @project(GitHub event types)
+	- ReleaseEvent @done(16-12-26 10:39) @project(GitHub event types)
+	- PushEvent @done(16-12-26 10:39) @project(GitHub event types)
+	- PullRequestEvent @done(16-12-26 10:39) @project(GitHub event types)
+	- IssuesEvent @done(16-12-26 10:39) @project(GitHub event types)
+	- IssueCommentEvent @done(16-12-26 10:39) @project(GitHub event types)
+	- GollumEvent @done(16-12-26 10:39) @project(GitHub event types)
+	- ForkEvent @done(16-12-26 10:37) @project(GitHub event types)
+	- DeleteEvent @done(16-12-26 10:35) @project(GitHub event types)
+	- CreateEvent @done(16-12-26 10:35) @project(GitHub event types)
+	- CommitCommentEvent @done(16-12-26 10:25) @project(GitHub event types)

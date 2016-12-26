@@ -1,8 +1,6 @@
 Theme:
 
 	JS:
-		- lazy-load all 3rd-party CSS/JS based on presence of elements?
-		e.g. "i.wi" for Weather Icons or "i.octicon" for Octicons
 
 	GitHub event types:
 		- MemberEvent
@@ -19,6 +17,8 @@ Content:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+	- lazy-load all 3rd-party CSS/JS based on presence of elements? @done(16-12-26 17:13) @project(Theme / JS)
+		e.g. "i.wi" for Weather Icons or "i.octicon" for Octicons
 	- TeamEvent (not visible in timeline) @done(16-12-26 10:53) @project(GitHub event types)
 	- TeamAddEvent (not visible in timeline) @done(16-12-26 10:53) @project(GitHub event types)
 	- StatusEvent (not visible in timeline) @done(16-12-26 10:53) @project(GitHub event types)

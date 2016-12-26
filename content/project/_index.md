@@ -57,7 +57,7 @@ GitHub
 
 -->
 
-My most recently-updated projects on [GitHub][gh].
+My most recently-updated [GitHub][gh] projects.
 
 
 [alfred]: https://www.alfredapp.com/

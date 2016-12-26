@@ -45,8 +45,12 @@ googleAnalytics = ""
 	twitterUsername = "deanishe"
 
 	# Homepage
-	githubRecentEvents = 10
-	recentPosts = 5
+	homepageRecentEvents = 5
+	homepageRecentLinks = 5
+	homepageRecentPosts = 5
+
+	# Links
+	pinboardMaxPosts = 15
 
 [params.sidebar]
 	logo = "images/deanishe-128.png"

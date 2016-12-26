@@ -116,7 +116,7 @@ $do_download && {
   log 'Fetching DarkSky forecast...'
   "$bin/darksky-forecast" "$dslocation" > "$out_forecast"
   log 'Fetching recent Pinboard posts...'
-  "$bin/pinboard-recent" > "$out_pinboard"
+  "$bin/pinboard-public" "$out_pinboard"
 }
 
 $do_clean && {

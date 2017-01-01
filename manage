@@ -3,6 +3,7 @@
 set -e
 
 here="$( cd "$( dirname "$0" )"; pwd )"
+aenv="$here/.autoenv.zsh"
 bin="$here/themes/alabastard/bin"
 
 buildir="$here/public"
@@ -104,6 +105,12 @@ done
 shift $((OPTIND-1))
 
 msg="$1"
+
+# Source autoenv file if it exists
+test -s "$aenv" && {
+  log "Sourcing $aenv ..."
+  . "$aenv"
+}
 
 cd "$here" &>/dev/null
 

@@ -2,6 +2,8 @@
 ### Hugo ###
 .sass-cache
 .autoenv.zsh
+.autoenv_leave.zsh
+data/**/*.json
 
 # Created by https://www.gitignore.io
 *.log

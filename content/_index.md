@@ -5,4 +5,4 @@ draft: false
 type: homepage
 ---
 
-Here be nonsense.
+Where marginal utility meets poor curation

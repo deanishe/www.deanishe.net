@@ -139,7 +139,7 @@ $do_forecast && {
 $do_pinboard && {
   test -n "$PINBOARD_API_TOKEN" || fatal "Pinboard API token not set"
   mkdir -p "$datadir/pinboard"
-  log 'Fetching Pinboard posts...'
+  log 'fetching Pinboard posts...'
   "$bin/pinboard-public" "$out_pinboard"
 }
 
@@ -160,21 +160,21 @@ $do_pinboard && {
 # }
 
 $do_clean && {
-  log "Cleaning build directory ..."
+  log "cleaning build directory ..."
   test -d "$buildir" && rm -rf "$buildir"/*
   mkdir -p "$buildir"
 }
 
-log "Generating site..."
+log "generating site..."
 ~/bin/hugo
 
 $do_publish && {
   test -n "$msg" || msg="rebuilt site $( date )"
-  log "Committing update..."
+  log "committing update..."
   cd "$buildir"
   git add -A
   git commit -m "$msg"
-  log "Pushing site to GitHub Pages..."
+  log "pushing site to GitHub Pages..."
   git push origin master
   cd -
 }

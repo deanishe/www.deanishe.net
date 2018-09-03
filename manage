@@ -166,7 +166,7 @@ $do_clean && {
 }
 
 log "generating site..."
-~/bin/hugo
+/usr/local/bin/hugo
 
 $do_publish && {
   test -n "$msg" || msg="rebuilt site $( date )"

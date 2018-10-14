@@ -52,14 +52,14 @@ If you set a variable to an array (e.g.
 ## Setting variables ##
 
 There are several ways to set variables. The most obvious ones are in
-the Workflow Environment Variables table in the workflow configuration
-sheet and using the Arg and Vars Utility. The configuration sheet is
-largely without magic, but in an Args and Vars Utility, you can use
-variable expansion macros: `{query}` expands (as always) to the input
-(which may be a user-entered query or the output from a previous
-Action), and you can use `{var:VARIABLE_NAME}` macros for your own
-custom variables.  This is described in detail in the above-mentioned
-help pages.
+the [Workflow Environment Variables table][config-sheet] in the
+workflow configuration sheet and using the [Arg and Vars
+Utility][args-and-vars]. The configuration sheet is largely without
+magic, but in an Args and Vars Utility, you can use variable expansion
+macros: `{query}` expands (as always) to the input (which may be a
+user-entered query or the output from a previous Action), and you can
+use `{var:VARIABLE_NAME}` macros for your own custom variables.  This
+is described in detail in the above-mentioned help pages.
 
 More interestingly, you can also set variables via the output of your
 scripts (i.e. dynamically) by emitting appropriate JSON. How you set
@@ -153,7 +153,9 @@ As above, `browser` is set to `Safari` by default and `Google Chrome` for Reddit
 
 ## Using variables ##
 
-So you've set a few variables, and now you want to use them. Within Alfred elements like Arg and Vars or Filter Utilities, you use the above-mentioned `{var:VARIABLE_NAME}` macros. Very simple.
+So you've set a few variables, and now you want to use them. Within
+Alfred elements like [Arg and Vars or Filter][args-and-vars] Utilities,
+you use the above-mentioned `{var:VARIABLE_NAME}` macros. Very simple.
 
 Where it gets a little more complicated is in your own code. First and foremost, __`{var:VARIABLE_NAME}` macro expansion does not work in Run Script Actions (or Run NSAppleScript).__
 
@@ -228,7 +230,7 @@ browser = ENV["browser"]
 Any variables you set in a running workflow are **not** saved. They
 exist as long as the workflow is running and then disappear. Any
 Workflow Environment Variables will "reset" to their values in the
-workflow configuration sheet on the next run.
+[workflow configuration sheet][config-sheet] on the next run.
 
 Generally, this is what you want, but sometimes you want to save a
 variable's value. For example, you might have an `API_KEY` Workflow
@@ -301,3 +303,5 @@ Application('Alfred 3').setConfiguration('BROWSER', {
 [alfred-help]: https://www.alfredapp.com/help/workflows/advanced/variables/
 [progress-bar]: https://www.alfredforum.com/topic/9718-progress-bar/
 [php-comment]: https://www.alfredforum.com/topic/9070-how-to-workflowenvironment-variables/?p=46151
+[args-and-vars]: https://www.alfredapp.com/help/workflows/utilities/argument/
+[config-sheet]: https://www.alfredapp.com/help/workflows/advanced/variables/#environment

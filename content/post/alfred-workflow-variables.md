@@ -1,7 +1,7 @@
 ---
 title: "Workflow/environment variables in Alfred"
 date: 2018-10-14
-tags: ["alfred"]
+tags: ["alfred", "variables", "tutorial"]
 draft: false
 ---
 

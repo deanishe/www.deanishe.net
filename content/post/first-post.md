@@ -11,11 +11,8 @@ Pinboard.
 
 <!--more-->
 
-- [GitHub projects I've most recently pushed][posts]
+- [GitHub projects I've most recently pushed](/project)
 - [Links I've recently saved](/link)
 - [Useful snippets of code and scripts that I've written](/snippet)
   (mostly gists)
 - [Other scribblings not focussed on source code](/post)
-
-
-[posts]: /post

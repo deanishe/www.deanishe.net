@@ -66,7 +66,7 @@ scripts (i.e. dynamically) by emitting appropriate JSON. How you set
 variables depends on whether you are using a Script Filter or a Run
 Script action.
 
-**You must use the appropriate mechanism, or it won't work.**
+**NOTE: You must use the appropriate mechanism, or it won't work!**
 
 
 ### From Run Script actions ###
@@ -85,8 +85,8 @@ pass variables, you instead emit JSON in a very specific format:
 The root `alfredworkflow` object is required. If it's missing, Alfred
 won't parse the JSON, but will pass it as-is as input to the next
 action (which can also be very useful). Your output (i.e. the next
-Action's input/`{query}`) goes in arg, and any variables you wish to
-set go in the variables object.
+Action's input/`{query}`) goes in `arg`, and any variables you wish to
+set go in the `variables` object.
 
 
 ### From Script Filters ###
@@ -105,7 +105,7 @@ appropriate level (feedback root, `item` or `mod`).
 
 Root-level variables are always passed to downstream elements
 regardless of which item is actioned. They are also passed back to the
-same Script Filter if you've set rerun, so you can use root-level
+same Script Filter if you've set `rerun`, so you can use root-level
 variables to implement a [progress bar][progress-bar].
 
 `browser` is set to `Safari` for all items:
@@ -135,7 +135,7 @@ browser is set to `Safari` by default, but `Google Chrome` for `Reddit`:
 
 #### Modifier-level variables ####
 
-Modifier-level variables are only passed downstream when the corresponding `item` is actioned with the appropriate modifier key pressed. They **replace** item-level variables (i.e. if a modifier sets any variables, Alfred ignores any variables set on its parent `item`).
+Modifier-level variables are only passed downstream when the corresponding `item` is actioned with the appropriate modifier key pressed. They **replace** item-level variables (i.e. if a modifier sets any variables, Alfred ignores any variables set on its parent `item`) and override root-level variables.
 
 As above, `browser` is set to `Safari` by default and `Google Chrome` for Reddit. But you can also pass `browser=Google Chrome` for Google by holding ⌘ when actioning it:
 
@@ -154,8 +154,9 @@ As above, `browser` is set to `Safari` by default and `Google Chrome` for Reddit
 ## Using variables ##
 
 So you've set a few variables, and now you want to use them. Within
-Alfred elements like [Arg and Vars or Filter][args-and-vars] Utilities,
-you use the above-mentioned `{var:VARIABLE_NAME}` macros. Very simple.
+Alfred elements like [Arg and Vars][args-and-vars] or [Filter][filter]
+Utilities, you use the above-mentioned `{var:VARIABLE_NAME}` macros.
+Very simple.
 
 Where it gets a little more complicated is in your own code. First and foremost, __`{var:VARIABLE_NAME}` macro expansion does not work in Run Script Actions (or Run NSAppleScript).__
 
@@ -164,7 +165,7 @@ rather takes any workflow variables and sets them as environment
 variables for your script. Using the above example again, Alfred would
 pass "https://www.google.com" to my script as input (either via ARGV or
 `{query}` depending on the settings) and it would set the environment
-variable browser to `Safari` or `Google Chrome`. How you retrieve
+variable `browser` to `Safari` or `Google Chrome`. How you retrieve
 environment variables depends on the language you're using.
 
 
@@ -203,12 +204,10 @@ ObjC.import('stdlib');
 var browser = $.getenv('browser');
 ```
 
+
 ### PHP ###
 
 Use `getenv()`:
-
-(Please see [this comment by juliosecco][php-comment] on why you should
-use `getenv()` over `$_ENV`.)
 
 ```php
 $browser = getenv('browser');
@@ -216,6 +215,10 @@ $browser = getenv('browser');
 // Or
 $browser = $_ENV['browser'];
 ```
+
+(Please see [this comment by juliosecco][php-comment] on why you should
+use `getenv()` over `$_ENV`.)
+
 
 ### Ruby ###
 
@@ -305,3 +308,4 @@ Application('Alfred 3').setConfiguration('BROWSER', {
 [php-comment]: https://www.alfredforum.com/topic/9070-how-to-workflowenvironment-variables/?p=46151
 [args-and-vars]: https://www.alfredapp.com/help/workflows/utilities/argument/
 [config-sheet]: https://www.alfredapp.com/help/workflows/advanced/variables/#environment
+[filter]: https://www.alfredapp.com/help/workflows/utilities/filter/

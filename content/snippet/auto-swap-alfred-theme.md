@@ -6,14 +6,14 @@ platforms: ["Alfred", "OS X"]
 tags: ["alfred", "theme", "launchd", "flux"]
 ---
 
-Swap Alfred theme at sunrise and sunset. Goes well with [f.lux][flux] and
-macOS's night mode.
+Swap Alfred theme at sunrise and sunset. Goes well with [f.lux][flux]
+and macOS's night mode.
+
+<!--more-->
 
 It uses [launchd][launchd] to call itself at sunrise and sunset (or
 as soon thereafter as your machine boots/wakes), and tells
 [Alfred][alfred] to change its theme.
-
-<!--more-->
 
 ```none
 toggle_alfred_theme.py [-v|-q] [-d|--dark <theme>] [-l|--light <theme>]

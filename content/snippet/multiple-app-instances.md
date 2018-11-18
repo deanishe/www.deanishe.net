@@ -8,6 +8,8 @@ title: Multiple app instances and scripting weirdness
 
 It's possible to start multiple instances of an application with `open -n`:
 
+<!--more-->
+
 ```sh
 #!/bin/bash
 # First instance of application

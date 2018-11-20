@@ -172,11 +172,10 @@ $do_publish && {
   test -n "$msg" || msg="rebuilt site $( date )"
   log "committing update..."
   cd "$buildir"
-  git pull origin master --no-edit
   git add -A
   git commit -m "$msg"
   log "pushing site to GitHub Pages..."
-  git push origin master
+  git push -f origin master
   cd -
 }
 

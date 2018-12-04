@@ -57,9 +57,9 @@ workflow configuration sheet and using the [Arg and Vars
 Utility][args-and-vars]. The configuration sheet is largely without
 magic, but in an Args and Vars Utility, you can use variable expansion
 macros: `{query}` expands (as always) to the input (which may be a
-user-entered query or the output from a previous Action), and you can
+user-entered query or the output from a previous element), and you can
 use `{var:VARIABLE_NAME}` macros for your own custom variables.  This
-is described in detail in the above-mentioned help pages.
+is described in detail in the above-mentioned Alfred help pages.
 
 More interestingly, you can also set variables via the output of your
 scripts (i.e. dynamically) by emitting appropriate JSON. How you set
@@ -133,6 +133,7 @@ browser is set to `Safari` by default, but `Google Chrome` for `Reddit`:
      "variables": {"browser": "Google Chrome"}}]}
 ```
 
+
 #### Modifier-level variables ####
 
 Modifier-level variables are only passed downstream when the corresponding `item` is actioned with the appropriate modifier key pressed. They **replace** item-level variables (i.e. if a modifier sets any variables, Alfred ignores any variables set on its parent `item`) and override root-level variables.
@@ -158,7 +159,7 @@ Alfred elements like [Arg and Vars][args-and-vars] or [Filter][filter]
 Utilities, you use the above-mentioned `{var:VARIABLE_NAME}` macros.
 Very simple.
 
-Where it gets a little more complicated is in your own code. First and foremost, __`{var:VARIABLE_NAME}` macro expansion does not work in Run Script Actions (or Run NSAppleScript).__
+Where it gets a little more complicated is in your own code. First and foremost, __`{var:VARIABLE_NAME}` macro expansion does not work in Run Script actions, Script Filters or any other script boxes in Alfred.__
 
 When Alfred runs your code, it does not use `{var:...}` macros, but
 rather takes any workflow variables and sets them as environment
@@ -227,6 +228,7 @@ Use `ENV`:
 ```ruby
 browser = ENV["browser"]
 ```
+
 
 ## Saving variables ##
 

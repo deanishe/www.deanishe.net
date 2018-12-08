@@ -5,4 +5,4 @@ draft: false
 type: homepage
 ---
 
-Where marginal utility meets poor curation
+<!-- Where marginal utility meets poor curation -->

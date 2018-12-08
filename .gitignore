@@ -4,6 +4,7 @@
 .autoenv.zsh
 .autoenv_leave.zsh
 data/**/*.json
+/resources/_gen
 
 # Created by https://www.gitignore.io
 *.log

@@ -28,7 +28,7 @@ googleAnalytics = ""
 	name = "deanishe.net"
 	description = "dem Dean sein Zeug"
 
-	custom_css = []
+	custom_css = ["style/deanishe.scss"]
 	custom_js  = []
 
 	highlightjs = "css/highlight.css"

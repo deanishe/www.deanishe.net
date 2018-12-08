@@ -3,7 +3,7 @@ title: "Copying Alfred's environment to your shell"
 date: 2018-12-08
 platforms: ["macOS", "Alfred"]
 tags: ["alfred", "environment", "plist", "shell"]
-draft: true
+draft: false
 ---
 
 A simple script to create an Alfred-like environment in your shell

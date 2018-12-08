@@ -78,6 +78,11 @@ func Build() error {
 
 // Publish push website to hosting server
 func Publish() error {
+	wd, err := os.Getwd()
+	if err != nil {
+		return err
+	}
+
 	msg := "rebuilt site " + time.Now().UTC().Format(time.RFC3339)
 	fmt.Println("committing update ...")
 	if err := sh.Run("cd", BuildDir); err != nil {
@@ -94,7 +99,7 @@ func Publish() error {
 		return err
 	}
 
-	return sh.Run("cd", "-")
+	return sh.Run("cd", wd)
 }
 
 // Manage your deps, or running package managers.

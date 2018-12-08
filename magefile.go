@@ -4,7 +4,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -27,9 +26,12 @@ var Aliases = map[string]interface{}{
 }
 
 var (
-	BinDir   = "./themes/alabastard/bin"
-	BuildDir = "./public"
-	DataDir  = "./data"
+	// PublishRepo   = "https://github.com/deanishe/deanishe.github.io"
+	PublishRepo   = "git@github.com:deanishe/deanishe.github.io.git"
+	PublishBranch = "master"
+	BinDir        = "./themes/alabastard/bin"
+	BuildDir      = "./public"
+	DataDir       = "./data"
 
 	// Subdirectories of DataDir
 	ForecastFile = "darksky/forecast.json"
@@ -47,6 +49,7 @@ func init() {
 
 // Assets compile .coffee files to JS
 func Assets() error {
+	fmt.Println("compiling assets ...")
 	files, err := findFiles("./themes/alabastard", ".coffee")
 	if err != nil {
 		return err
@@ -69,33 +72,56 @@ func All() error {
 // Build generate website in ./public
 func Build() error {
 	mg.Deps(Deps, Clean)
-	fmt.Println("building...")
-	if err := sh.Run("/usr/local/bin/hugo"); err != nil {
+	if isInstalled("coffee") {
+		mg.Deps(Assets)
+	}
+	fmt.Println("building ...")
+	if err := sh.Run("hugo"); err != nil {
 		return err
 	}
 	return ServiceWorker()
 }
 
+// Dev generate dev (ENV=dev) website in ./public
+func Dev() error {
+	mg.Deps(Deps, Clean)
+	if isInstalled("coffee") {
+		mg.Deps(Assets)
+	}
+	fmt.Println("building dev ...")
+	env := map[string]string{"ENV": "dev"}
+	return sh.RunWith(env, "hugo")
+}
+
 // Publish push website to hosting server
 func Publish() error {
+	fmt.Println("publishing site ...")
 	wd, err := os.Getwd()
 	if err != nil {
 		return err
 	}
 
-	msg := "rebuilt site " + time.Now().UTC().Format(time.RFC3339)
-	fmt.Println("committing update ...")
 	if err := os.Chdir(BuildDir); err != nil {
 		return err
 	}
-	if err := sh.Run("git", "add", "-A"); err != nil {
+
+	msg := "rebuilt site " + time.Now().UTC().Format(time.RFC3339)
+	fmt.Println("creating git repo ...")
+	if err := sh.Run("git", "init", "."); err != nil {
+		return err
+	}
+	if err := sh.Run("git", "add", "."); err != nil {
 		return err
 	}
 	if err := sh.Run("git", "commit", "-m", msg); err != nil {
 		return err
 	}
+	if err := sh.Run("git", "remote", "add", "origin", PublishRepo); err != nil {
+		return err
+	}
+
 	fmt.Println("pushing site to GitHub pages ...")
-	if err := sh.Run("git", "push", "-f", "origin", "master"); err != nil {
+	if err := sh.Run("git", "push", "-f", "origin", PublishBranch); err != nil {
 		return err
 	}
 
@@ -104,7 +130,7 @@ func Publish() error {
 
 // Manage your deps, or running package managers.
 func Deps() error {
-	fmt.Println("installing deps...")
+	fmt.Println("installing deps ...")
 	if err := sh.Run("go", "mod", "tidy"); err != nil {
 		return err
 	}
@@ -113,21 +139,10 @@ func Deps() error {
 
 // Clean delete files in ./public
 func Clean() error {
-	fmt.Println("cleaning ./public ...")
-	infos, err := ioutil.ReadDir(BuildDir)
-	if err != nil {
+	fmt.Printf("cleaning %s ...\n", BuildDir)
+	err := os.RemoveAll(BuildDir)
+	if err != nil && !os.IsNotExist(err) {
 		return err
-	}
-
-	for _, fi := range infos {
-		if fi.Name() == ".git" {
-			continue
-		}
-
-		p := filepath.Join(BuildDir, fi.Name())
-		if err := os.RemoveAll(p); err != nil {
-			return err
-		}
 	}
 
 	fmt.Println("cleaning mage cache ...")
@@ -156,4 +171,12 @@ func findFiles(dir, ext string) ([]string, error) {
 	})
 
 	return files, err
+}
+
+// return true if a command is installed
+func isInstalled(name string) bool {
+	if err := sh.Run("hash", name); err == nil {
+		return true
+	}
+	return false
 }

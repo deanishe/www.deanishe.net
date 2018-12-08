@@ -1,4 +1,11 @@
 
+# deployment key
+/deploy_key
+/deploy_key.pub
+
+# generated site
+/public
+
 ### Hugo ###
 .sass-cache
 .autoenv.zsh
@@ -34,3 +41,5 @@ Session.vim
 .netrwhist
 *~
 .ropeproject
+/tags
+

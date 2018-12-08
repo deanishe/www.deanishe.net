@@ -8,7 +8,7 @@ publishDir = "public"
 theme = "alabastard"
 
 canonifyURLs = false
-relativeURLs = true
+relativeURLs = false
 
 metadataFormat = "yaml"
 

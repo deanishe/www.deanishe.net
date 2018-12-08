@@ -1,0 +1,9 @@
+# Caddy helps test 404 page
+:2015 {
+    # proxy / localhost:1313/
+    root ./public
+    errors stderr {
+        404  404.html
+    }
+}
+#  vim: set ft=caddyfile ts=4 sw=4 tw=79 et : 

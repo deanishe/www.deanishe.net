@@ -1,7 +1,3 @@
-[submodule "public"]
-	path = public
-	url = git@github.com:deanishe/deanishe.github.io
-	branch = master
 [submodule "themes/alabastard"]
 	path = themes/alabastard
-	url = git@github.com:deanishe/alabastard
+	url = https://github.com/deanishe/alabastard.git

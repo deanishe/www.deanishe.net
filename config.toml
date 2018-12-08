@@ -31,7 +31,7 @@ googleAnalytics = ""
 	custom_css = ["style/deanishe.scss"]
 	custom_js  = []
 
-	highlightjs = "css/highlight.css"
+	highlightjs = "style/highlight.css"
 	favicons = "images/favicons"
 
 	# Analytics

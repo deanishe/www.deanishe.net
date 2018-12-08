@@ -47,20 +47,17 @@ self.addEventListener('fetch', function(event) {
   }
 
   var url = new URL(event.request.url);
-  // console.debug('[worker] url =', url.href, ', path =', url.pathname, ', host =', url.host);
 
-  if (url.hostname !== 'www.kulturliste-duesseldorf.de' &&
-      url.hostname !== 'beta.kulturliste-duesseldorf.de' &&
-      url.hostname !== 'ng.kulturliste-duesseldorf.de' &&
+  if (url.hostname !== 'www.deanishe.net' &&
+      url.hostname !== 'localhost' &&
       url.hostname !== '127.0.0.1') {
     console.debug('[worker] ignoring 3rd-party URL', url.href);
     return;
   }
 
-  if (url.pathname.startsWith('/api/') ||
-      url.pathname.startsWith('/mailgroups/') ||
-      url.pathname.startsWith('/a/')) {
-    console.debug('[worker] ignoring service URL', url.href);
+  if (!url.pathname.startsWith('/style/') &&
+      !url.pathname.startsWith('/js/')) {
+    console.debug('[worker] ignoring non-versioned URL', url.href);
     return;
   }
 
@@ -91,30 +88,30 @@ self.addEventListener('fetch', function(event) {
   }
 
   // Return other assets from cache and update cache from network
-  if (url.pathname.match(/\.(png|ico|jpg|jpeg|gif|svg)$/)) {
-    console.debug('[worker] other asset', url.pathname);
-    event.respondWith(
-      caches.open(cacheName).then(function(cache) {
-          return cache.match(event.request).then(function(response) {
-            var p = fetch(event.request).then(function(response) {
-              cache.put(event.request, response.clone());
-              console.debug('[worker] cached', url.pathname);
-              return response;
-            })
-            .catch(function() {
-              console.error('[worker] error fetching', event.request.url);
-            });
+  // if (url.pathname.match(/\.(png|ico|jpg|jpeg|gif|svg)$/)) {
+  //   console.debug('[worker] other asset', url.pathname);
+  //   event.respondWith(
+  //     caches.open(cacheName).then(function(cache) {
+  //         return cache.match(event.request).then(function(response) {
+  //           var p = fetch(event.request).then(function(response) {
+  //             cache.put(event.request, response.clone());
+  //             console.debug('[worker] cached', url.pathname);
+  //             return response;
+  //           })
+  //           .catch(function() {
+  //             console.error('[worker] error fetching', event.request.url);
+  //           });
 
-            if (response) {
-              console.debug('[worker] from cache', url.pathname);
-              return response;
-            }
-            return p;
-          });
-      })
-    );
-    return;
-  }
+  //           if (response) {
+  //             console.debug('[worker] from cache', url.pathname);
+  //             return response;
+  //           }
+  //           return p;
+  //         });
+  //     })
+  //   );
+  //   return;
+  // }
 
   // Try to fetch everything else from the network first
   console.debug('[worker] network-first', event.request.url);

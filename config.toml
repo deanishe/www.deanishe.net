@@ -52,6 +52,9 @@ googleAnalytics = ""
 	# Links
 	pinboardMaxPosts = 15
 
+	# Whether or not to generate a service worker for the site
+	createServiceWorker = true
+
 
 [params.sidebar]
 	logo = "images/deanishe-128.png"

@@ -70,7 +70,7 @@ func All() error {
 func Build() error {
 	mg.Deps(Deps, Clean, Assets)
 	fmt.Println("building...")
-	if err := sh.Run("hugo"); err != nil {
+	if err := sh.Run("/usr/local/bin/hugo"); err != nil {
 		return err
 	}
 	return ServiceWorker()
@@ -85,7 +85,7 @@ func Publish() error {
 
 	msg := "rebuilt site " + time.Now().UTC().Format(time.RFC3339)
 	fmt.Println("committing update ...")
-	if err := sh.Run("cd", BuildDir); err != nil {
+	if err := os.Chdir(BuildDir); err != nil {
 		return err
 	}
 	if err := sh.Run("git", "add", "-A"); err != nil {
@@ -99,7 +99,7 @@ func Publish() error {
 		return err
 	}
 
-	return sh.Run("cd", wd)
+	return os.Chdir(wd)
 }
 
 // Manage your deps, or running package managers.

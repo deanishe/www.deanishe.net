@@ -68,7 +68,7 @@ func All() error {
 
 // Build generate website in ./public
 func Build() error {
-	mg.Deps(Deps, Clean, Assets)
+	mg.Deps(Deps, Clean)
 	fmt.Println("building...")
 	if err := sh.Run("/usr/local/bin/hugo"); err != nil {
 		return err

@@ -14,6 +14,11 @@ metadataFormat = "yaml"
 
 paginate = 10
 
+pygmentsUseClasses = true
+pygmentsCodefences = true
+pygmentsCodefencesGuessSyntax = true
+# pygmentsOptions = "linenos=true"
+
 enableRobotsTXT = true
 
 enableGitInfo = true
@@ -31,7 +36,7 @@ googleAnalytics = ""
 	custom_css = ["style/deanishe.scss"]
 	custom_js  = []
 
-	highlightjs = "style/highlight.css"
+	# highlightjs = "style/highlight.css"
 	favicons = "images/favicons"
 
 	# Analytics

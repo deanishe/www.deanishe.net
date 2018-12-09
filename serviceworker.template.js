@@ -23,15 +23,15 @@ self.addEventListener('install', function(event) {
            The method below will add all resources we've indicated to the cache,
            after making HTTP requests for each of them.
         */
-        var busts = [];
+        // var busts = [];
+        var urls = [];
         precacheFiles.forEach(function(p) {
-          console.debug('[worker] caching', p, '...');
-          busts.push(p + '?v=' + version.slice(0, 10));
+          console.debug('[worker] pre-caching', p, '...');
+          urls.push(p);
+          // busts.push(p + '?v=' + version.slice(0, 10));
         });
-        // for (var i = 0; i < precacheFiles.length; i++) {
-        //   console.debug('[worker] caching', precacheFiles[i], '...');
-        // }
-        return cache.addAll(busts);
+        return cache.addAll(urls);
+        // return cache.addAll(busts);
       })
       .then(function() {
         console.debug('[worker] installed');
@@ -57,28 +57,24 @@ self.addEventListener('fetch', function(event) {
 
   if (!url.pathname.startsWith('/style/') &&
       !url.pathname.startsWith('/js/')) {
-    console.debug('[worker] ignoring non-versioned URL', url.href);
+    // console.debug('[worker] ignoring non-versioned URL', url.href);
     return;
   }
 
-  // if (url.hash) {
-  //   console.debug('[worker] ignoring URL fragment', url.href);
-  // }
-
   // CSS and JS files were cached on install
   if (url.pathname.match(/\.(css|js)$/)) {
-    console.debug('[worker] static asset', url.pathname);
+    // console.debug('[worker] versioned asset', url.pathname);
     event.respondWith(
       caches.open(cacheName).then(function(cache) {
         return cache.match(event.request).then(function(response) {
           if (response) {
-            console.debug('[worker] from cache', url.pathname);
+            console.debug('[worker] >', url.pathname);
             return response;
           }
 
           return fetch(event.request).then(function(response) {
             cache.put(event.request, response.clone());
-            console.debug('[worker] cached', url.pathname);
+            console.debug('[worker] <', url.pathname);
             return response;
           });
         });
@@ -86,32 +82,6 @@ self.addEventListener('fetch', function(event) {
     );
     return;
   }
-
-  // Return other assets from cache and update cache from network
-  // if (url.pathname.match(/\.(png|ico|jpg|jpeg|gif|svg)$/)) {
-  //   console.debug('[worker] other asset', url.pathname);
-  //   event.respondWith(
-  //     caches.open(cacheName).then(function(cache) {
-  //         return cache.match(event.request).then(function(response) {
-  //           var p = fetch(event.request).then(function(response) {
-  //             cache.put(event.request, response.clone());
-  //             console.debug('[worker] cached', url.pathname);
-  //             return response;
-  //           })
-  //           .catch(function() {
-  //             console.error('[worker] error fetching', event.request.url);
-  //           });
-
-  //           if (response) {
-  //             console.debug('[worker] from cache', url.pathname);
-  //             return response;
-  //           }
-  //           return p;
-  //         });
-  //     })
-  //   );
-  //   return;
-  // }
 
   // Try to fetch everything else from the network first
   console.debug('[worker] network-first', event.request.url);
@@ -122,14 +92,14 @@ self.addEventListener('fetch', function(event) {
       console.debug('[worker] from network', event.request.url);
       caches.open(cacheName).then(function(cache) {
         cache.put(event.request, r2);
-        console.debug('[worker] cached', event.request.url);
+        console.debug('[worker] <', event.request.url);
       });
       return response;
     })
     .catch(function() {
       console.debug('[worker] falling back to cache', event.request.url, '...');
       return caches.match(event.request).then(function(response) {
-        console.debug('[worker] from cache', event.request.url);
+        console.debug('[worker] >', event.request.url);
         return response;
       });
     })

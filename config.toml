@@ -87,3 +87,12 @@ googleAnalytics = ""
 	tag = "tags"
 	category = "categories"
 	platform = "platforms"
+
+[related]
+	threshold = 80
+	includeNewer = true
+	toLower = true
+
+	[related.indices]
+		name = "tags"
+		weight = 100

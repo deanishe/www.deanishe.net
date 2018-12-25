@@ -2,7 +2,6 @@
 title: First Post
 date: 2016-12-25T15:30:46+01:00
 draft: false
-tags: []
 ---
 
 Finally, a website to put my stuff on. As I'm unlikely to post

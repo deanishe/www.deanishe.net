@@ -1,9 +1,8 @@
 ---
-date: 2016-12-22
-description: "Index of snippets type"
-draft: true
-tags: []
 title: "Scripts & Snippets"
+date: 2016-12-22
 ---
 
-Mostly Python, zsh and Go.
+Short scripts and code snippets, mostly Python, zsh and Go.
+
+<!--more-->

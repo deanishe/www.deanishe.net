@@ -1,8 +1,10 @@
 ---
 title: "Workflow/environment variables in Alfred"
 date: 2018-10-14
-tags: ["alfred", "variables", "tutorial"]
-draft: false
+tags:
+    - alfred
+    - variables
+    - tutorial
 ---
 
 This is a brief look at how to get, set and save variables in code

@@ -2,8 +2,11 @@
 title: "Text Table in Python"
 date: 2016-12-25T16:33:06+01:00
 draft: false
-tags: ["python", "text"]
-platforms: ["python"]
+tags:
+    - python
+    - text
+platforms:
+    - Python
 ---
 
 Python class to pretty-print tabluar data in a terminal.

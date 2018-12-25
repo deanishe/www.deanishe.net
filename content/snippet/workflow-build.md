@@ -2,8 +2,12 @@
 title: "Workflow build script for Alfred"
 date: 2016-12-25T16:33:14+01:00
 draft: false
-tags: ["python", "alfred"]
-platforms: ["OS X", "Alfred"]
+tags:
+    - python
+    - alfred
+platforms:
+    - macOS
+    - Alfred
 ---
 
 A script for building [Alfred][alfred] workflows. Focussed on Python-based workflows.

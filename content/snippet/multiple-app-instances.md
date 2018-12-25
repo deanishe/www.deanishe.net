@@ -1,9 +1,13 @@
 ---
+title: Multiple app instances and scripting weirdness
 date: 2017-06-23T10:12:40+02:00
 draft: false
-platforms: [macos]
-tags: [jxa, apps, macos]
-title: Multiple app instances and scripting weirdness
+platforms:
+    - macOS
+tags:
+    - jxa
+    - apps
+    - macos
 ---
 
 It's possible to start multiple instances of an application with `open -n`:

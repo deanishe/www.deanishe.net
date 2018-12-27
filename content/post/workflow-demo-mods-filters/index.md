@@ -1,5 +1,5 @@
 ---
-title: "Demo Workflow: Mods and Filters"
+title: "Demo workflow: Mods and filters"
 date: "2018-12-27"
 draft: false
 platforms:

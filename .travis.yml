@@ -6,9 +6,6 @@ go:
 git:
   depth: 3
 
-env:
-  - GO111MODULE=on
-
 before_install:
   - openssl aes-256-cbc -K $encrypted_53f656cbcdd0_key -iv $encrypted_53f656cbcdd0_iv
     -in deploy_key.enc -out ./deploy_key -d
@@ -28,13 +25,13 @@ install:
   # - cd hugo
   # - HUGO_BUILD_TAGS=extended mage -v install
   - cd $TRAVIS_BUILD_DIR
-  - go mod tidy -v
-  - go mod verify
-  - go mod vendor -v
+  - go GO111MODULE=on mod tidy -v
+  - go GO111MODULE=on mod verify
+  - go GO111MODULE=on mod vendor -v
 
 script:
   - cd $TRAVIS_BUILD_DIR
-  - "PATH=$GOPATH/bin:$PATH mage -v data build"
+  - "PATH=$GOPATH/bin:$PATH GO111MODULE=on mage -v data build"
 
 deploy:
   skip_cleanup: true

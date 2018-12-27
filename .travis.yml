@@ -25,9 +25,9 @@ install:
   # - cd hugo
   # - HUGO_BUILD_TAGS=extended mage -v install
   - cd $TRAVIS_BUILD_DIR
-  - go GO111MODULE=on mod tidy -v
-  - go GO111MODULE=on mod verify
-  - go GO111MODULE=on mod vendor -v
+  - GO111MODULE=on go mod tidy -v
+  - GO111MODULE=on go mod verify
+  - GO111MODULE=on go mod vendor -v
 
 script:
   - cd $TRAVIS_BUILD_DIR

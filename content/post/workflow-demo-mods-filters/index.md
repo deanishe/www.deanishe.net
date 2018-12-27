@@ -14,4 +14,11 @@ an Alfred Workflow.
 
 <!--more-->
 
-From [this forum thread](https://www.alfredforum.com/topic/9037-junction-with-modifiers/?tab=comments#comment-44948).
+Note that the workflow uses an outdated (but working) feedback format.
+It's no longer necessary to serialise a `alfredworkflow` object into
+`arg`: `mod` is now a much richer object, with support for `variables`
+and `args` fields.
+
+From [this forum thread][thread].
+
+[thread]: https://www.alfredforum.com/topic/9037-junction-with-modifiers/

@@ -6,6 +6,7 @@ platforms:
 tags:
     - applescript
     - alfred-workflow
+    - demo
 ---
 
 A stub Alfred workflow that splits user query into two words using

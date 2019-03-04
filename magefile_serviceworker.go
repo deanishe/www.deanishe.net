@@ -51,7 +51,7 @@ var (
 	}
 )
 
-// ServiceWorker generates a service worker script.
+// ServiceWorker generate a service worker script
 func ServiceWorker() error {
 
 	fmt.Println("generating service worker ...")

@@ -128,7 +128,7 @@ func Publish() error {
 	return os.Chdir(wd)
 }
 
-// Manage your deps, or running package managers.
+// Deps update dependencies
 func Deps() error {
 	fmt.Println("installing deps ...")
 	if err := sh.Run("go", "mod", "tidy"); err != nil {

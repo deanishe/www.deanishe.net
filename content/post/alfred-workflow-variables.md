@@ -5,6 +5,8 @@ tags:
     - alfred
     - variables
     - tutorial
+aliases:
+    - "/post/2018/10/workflow/environment-variables-in-alfred/"
 ---
 
 This is a brief look at how to get, set and save variables in code

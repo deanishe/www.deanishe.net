@@ -1,7 +1,9 @@
 ---
-title: "Suffix Web Search workflow"
+title: "Workflow: Suffix Web Search"
 date: "2019-05-30"
 draft: false
+aliases:
+    - "/post/2019/05/suffix-web-search-workflow/"
 tags:
     - alfred-workflow
 platforms:

@@ -1,7 +1,7 @@
 ---
 title: "Workflow: Firefox Bookmarks"
 slug: workflow-firefox-bookmarks
-date: "2019-06-09"
+date: "2019-06-08"
 tags:
     - alfred-workflow
     - firefox

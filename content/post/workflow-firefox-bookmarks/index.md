@@ -1,7 +1,7 @@
 ---
 title: "Workflow: Firefox Bookmarks"
 date: "2019-06-09"
-draft: true
+draft: false
 tags:
     - alfred-workflow
     - firefox

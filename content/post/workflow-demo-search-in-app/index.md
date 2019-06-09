@@ -26,4 +26,7 @@ Change the name of the app in the workflow's configuration sheet in Alfred Prefe
 
 ![Workflow configuration sheet][screen]
 
+`delay` is the number of seconds the workflow waits after simulating `⌘F` before it types the query (i.e. time for the app's search dialog to appear and take focus).
+
+
 [screen]: screenshot-setup.png "screenshot of Alfred's workflow configuration sheet"

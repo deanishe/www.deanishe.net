@@ -18,3 +18,12 @@ For applications that aren't scriptable via AppleScript or URL scheme, you can s
 
 This workflow activates the configured application (Safari by default), simulates `⌘F`, waits a bit, types the user's query and simulates `↩`.
 
+
+Configuration
+-------------
+
+Change the name of the app in the workflow's configuration sheet in Alfred Preferences:
+
+![Workflow configuration sheet][screen]
+
+[screen]: screenshot-setup.png "screenshot of Alfred's workflow configuration sheet"

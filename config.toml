@@ -44,8 +44,8 @@ googleAnalytics = ""
 	piwikSiteID = 2
 
 	# Social
-	githubUsername   = "deanishe"
-	githubRepo   = "deanishe.github.io"
+	githubUsername = "deanishe"
+	githubRepo = "www.deanishe.net"
 	githubBanner = false
 	twitterUsername = "deanishe"
 
@@ -59,6 +59,12 @@ googleAnalytics = ""
 
 	# Whether or not to generate a service worker for the site
 	createServiceWorker = true
+
+	# Repos to ignore events from
+	ignoreGithubRepos = [
+		"deanishe/www.deanishe.net",
+		"deanishe/deanishe.github.io",
+	]
 
 
 [params.sidebar]

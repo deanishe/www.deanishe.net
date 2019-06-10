@@ -1,6 +1,9 @@
 language: go
 dist: xenial
 
+env:
+  - GO111MODULE=on
+
 go:
   - 1.x
 
@@ -20,19 +23,19 @@ install:
   - cd $GOPATH/src/github.com/magefile/mage
   - go run bootstrap.go
   - cd $HOME
-  - curl -fL -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.53/hugo_extended_0.53_Linux-64bit.deb
+  - curl -fL -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.deb
   - sudo dpkg -i hugo.deb
   # - git clone https://github.com/gohugoio/hugo.git
   # - cd hugo
   # - HUGO_BUILD_TAGS=extended mage -v install
   - cd $TRAVIS_BUILD_DIR
-  - GO111MODULE=on go mod tidy -v
-  - GO111MODULE=on go mod verify
-  - GO111MODULE=on go mod vendor -v
+  - go mod tidy -v
+  - go mod verify
+  - go mod vendor -v
 
 script:
   - cd $TRAVIS_BUILD_DIR
-  - "PATH=$GOPATH/bin:$PATH GO111MODULE=on mage -v data build"
+  - "PATH=$GOPATH/bin:$PATH mage -v data build"
 
 deploy:
   skip_cleanup: true

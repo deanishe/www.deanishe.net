@@ -20,8 +20,8 @@ pygmentsCodefencesGuessSyntax = true
 # pygmentsOptions = "linenos=true"
 
 enableRobotsTXT = true
-
 enableGitInfo = true
+rssLimit = 10
 
 disqusShortname = ""
 googleAnalytics = ""
@@ -82,6 +82,9 @@ googleAnalytics = ""
 	# Any item with "type=toplevel" will be placed at the top level
 	toplevel = "/:filename/"
 	post = "/:section/:year/:month/:slug/"
+
+[services.rss]
+	limit = 10
 
 [taxonomies]
 	tag = "tags"

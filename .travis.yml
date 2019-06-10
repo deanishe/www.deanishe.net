@@ -19,19 +19,19 @@ before_install:
   - ssh-add ./deploy_key
 
 install:
-  - go get -u -d github.com/magefile/mage
-  - cd $GOPATH/src/github.com/magefile/mage
-  - go run bootstrap.go
-  - cd $HOME
+  - go get -u -v github.com/magefile/mage
+  # - cd $GOPATH/src/github.com/magefile/mage
+  # - go run bootstrap.go
+  # - cd $HOME
   - curl -fL -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.deb
   - sudo dpkg -i hugo.deb
   # - git clone https://github.com/gohugoio/hugo.git
   # - cd hugo
   # - HUGO_BUILD_TAGS=extended mage -v install
-  - cd $TRAVIS_BUILD_DIR
-  - go mod tidy -v
-  - go mod verify
-  - go mod vendor -v
+  # - cd $TRAVIS_BUILD_DIR
+  # - go mod tidy -v
+  # - go mod verify
+  # - go mod vendor -v
 
 script:
   - cd $TRAVIS_BUILD_DIR

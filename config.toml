@@ -21,7 +21,6 @@ pygmentsCodefencesGuessSyntax = true
 
 enableRobotsTXT = true
 enableGitInfo = true
-rssLimit = 10
 
 disqusShortname = ""
 googleAnalytics = ""

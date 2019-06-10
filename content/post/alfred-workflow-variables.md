@@ -5,6 +5,7 @@ tags:
     - alfred
     - variables
     - tutorial
+    - guide
 aliases:
     - "/post/2018/10/workflow/environment-variables-in-alfred/"
 ---
@@ -18,21 +19,21 @@ This is a brief look at how to get, set and save variables in code
 
 - [Introduction](#introduction)
 - [Setting variables](#setting-variables)
-    - [From Run Script actions](#from-run-script-actions)
-    - [From Script Filters](#from-script-filters)
-        - [Root-level variables](#root-level-variables)
-        - [Item-level variables](#item-level-variables)
-        - [Modifier-level variables](#modifier-level-variables)
+  - [From Run Script actions](#from-run-script-actions)
+  - [From Script Filters](#from-script-filters)
+    - [Root-level variables](#root-level-variables)
+    - [Item-level variables](#item-level-variables)
+    - [Modifier-level variables](#modifier-level-variables)
 - [Using variables](#using-variables)
-    - [bash](#bash)
-    - [Python](#python)
-    - [AppleScript](#applescript)
-    - [JavaScript \(JXA\)](#javascript-jxa)
-    - [PHP](#php)
-    - [Ruby](#ruby)
+  - [bash](#bash)
+  - [Python](#python)
+  - [AppleScript](#applescript)
+  - [JavaScript (JXA)](#javascript-jxa)
+  - [PHP](#php)
+  - [Ruby](#ruby)
 - [Saving variables](#saving-variables)
-    - [AppleScript](#applescript-1)
-    - [JavaScript \(JXA\)](#javascript-jxa-1)
+  - [AppleScript](#applescript-1)
+  - [JavaScript (JXA)](#javascript-jxa-1)
 
 <!-- /MarkdownTOC -->
 

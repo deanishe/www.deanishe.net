@@ -60,13 +60,6 @@ googleAnalytics = ""
 	# Whether or not to generate a service worker for the site
 	createServiceWorker = true
 
-	# Repos to ignore events from
-	ignoreGithubRepos = [
-		"deanishe/www.deanishe.net",
-		"deanishe/deanishe.github.io",
-	]
-
-
 [params.sidebar]
 	logo = "images/deanishe-128.png"
 
@@ -78,7 +71,8 @@ googleAnalytics = ""
 	show_relations = false
 
 [params.repos]
-	ignored = ["deanishe.github.io", "www.deanishe.net"]
+	# Repos to ignore projects from
+	ignored = ["deanishe/deanishe.github.io", "deanishe/www.deanishe.net"]
 
 [params.footer]
 	copyright = "[@deanishe](https://twitter.com/deanishe)"

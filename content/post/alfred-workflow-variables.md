@@ -15,8 +15,6 @@ This is a brief look at how to get, set and save variables in code
 
 <!--more-->
 
-<!-- MarkdownTOC autolink=true -->
-
 - [Introduction](#introduction)
 - [Setting variables](#setting-variables)
   - [From Run Script actions](#from-run-script-actions)
@@ -34,24 +32,24 @@ This is a brief look at how to get, set and save variables in code
 - [Saving variables](#saving-variables)
   - [AppleScript](#applescript-1)
   - [JavaScript (JXA)](#javascript-jxa-1)
-
-<!-- /MarkdownTOC -->
+  - [Alfred 3](#alfred-3)
 
 
 ## Introduction ##
 
 In Alfred 2, you had one single variable to work with: the `{query}`
-macro. Alfred 3 adds the ability to specify as many variables as you
+macro. Alfred 3 added the ability to specify as many variables as you
 want. [Alfred's own help][alfred-help] provides a great description of
 working with variables in Alfred's own UI. I'm going to look more
 closely about getting and setting workflow/environment variables in
 your own code within a workflow.
 
 First of all, it bears mentioning that all variables are strings. Sure,
-you can set a variable to a number in JSON, but when it reaches your
-next script or one of Alfred's Filter Utilities, it will be a string.
-If you set a variable to an array (e.g.
-`[1, 2, 3, "mach dat Mäh mal ei"]`), Alfred will turn it into a single, tab-delimited string (`"1\t2\t3\tmach dat Mäh mal ei"`).
+you can set a variable to a number in JSON or an array, but when it
+reaches your next script or one of Alfred's Filter Utilities, it will be
+a string. If you set a variable to an array (e.g. `[1, 2, 3, "mach dat
+Mäh mal ei"]`), Alfred will turn it into a single tab-delimited string
+(`"1\t2\t3\tmach dat Mäh mal ei"`).
 
 
 ## Setting variables ##
@@ -124,9 +122,11 @@ variables to implement a [progress bar][progress-bar].
 
 #### Item-level variables ####
 
-Item-level variables are only passed downstream when the item they're set on is actioned, and they override root-level variables. Root-level variables are also passed downstream when you action an item.
+Item-level variables are only passed downstream when the item they're
+set on is actioned, and they override root-level variables. Root-level
+variables are also passed downstream when you action an item.
 
-browser is set to `Safari` by default, but `Google Chrome` for `Reddit`:
+`browser` is set to `Safari` by default, but `Google Chrome` for Reddit:
 
 ```json
 {"variables": {"browser": "Safari"},
@@ -141,9 +141,15 @@ browser is set to `Safari` by default, but `Google Chrome` for `Reddit`:
 
 #### Modifier-level variables ####
 
-Modifier-level variables are only passed downstream when the corresponding `item` is actioned with the appropriate modifier key pressed. They **replace** item-level variables (i.e. if a modifier sets any variables, Alfred ignores any variables set on its parent `item`) and override root-level variables.
+Modifier-level variables are only passed downstream when the
+corresponding `item` is actioned with the appropriate modifier key
+pressed. They **replace** item-level variables (i.e. if a modifier sets
+any variables, Alfred ignores any variables set on its parent `item`)
+and override root-level variables.
 
-As above, `browser` is set to `Safari` by default and `Google Chrome` for Reddit. But you can also pass `browser=Google Chrome` for Google by holding ⌘ when actioning it:
+As above, `browser` is set to `Safari` by default and `Google Chrome`
+for Reddit. But you can also pass `browser=Google Chrome` for Google by
+holding ⌘ when actioning it:
 
 ```json
 {"variables": {"browser": "Safari"},
@@ -164,7 +170,9 @@ Alfred elements like [Arg and Vars][args-and-vars] or [Filter][filter]
 Utilities, you use the above-mentioned `{var:VARIABLE_NAME}` macros.
 Very simple.
 
-Where it gets a little more complicated is in your own code. First and foremost, __`{var:VARIABLE_NAME}` macro expansion does not work in Run Script actions, Script Filters or any other script boxes in Alfred.__
+Where it gets a little more complicated is in your own code. First and
+foremost, __`{var:VARIABLE_NAME}` macro expansion does not work in Run
+Script actions, Script Filters or any other script boxes in Alfred.__
 
 When Alfred runs your code, it does not use `{var:...}` macros, but
 rather takes any workflow variables and sets them as environment
@@ -256,14 +264,16 @@ variables set in the Workflow Configuration Sheet.
 
 ### AppleScript ###
 
+The following applies to  Alfred 4+. For Alfred 3, [see below](#alfred-3).
+
 **NOTE:** The `with exportable` clause is optional. If not specified,
 the variable defaults to "Don't Export".
 
-To set variable `BROWSER` to value `Safari` in workflow
+To set variable `browser` to value `Safari` in workflow
 `net.deanishe.demo`:
 
 ```applescript
-tell application "Alfred 3" to set configuration "BROWSER" to value "Safari" in workflow "net.deanishe.demo" with exportable
+tell application id "com.runningwithcrayons.Alfred" to set configuration "browser" to value "Safari" in workflow "net.deanishe.demo" with exportable
 ```
 
 As Alfred exports the bundle ID of the running workflow to the
@@ -273,25 +283,26 @@ instead of hard-coding the bundle ID:
 ```applescript
 set bundleID to (system attribute "alfred_workflow_bundleid")
 
-tell application "Alfred 3"
-    set configuration "BROWSER" to value "Safari" in workflow bundleID with exportable
+tell application id "com.runningwithcrayons.Alfred"
+    set configuration "browser" to value "Safari" in workflow bundleID with exportable
 end tell
 ```
 
 The corresponding call to remove a variable is:
 
 ```applescript
-tell application "Alfred 3" to remove configuration "BROWSER" in workflow "net.deanishe.demo"
+tell application id "com.runningwithcrayons.Alfred" to remove configuration "browser" in workflow "net.deanishe.demo"
 ```
 
-
 ### JavaScript (JXA) ###
+
+The following applies to  Alfred 4+. For Alfred 3, [see below](#alfred-3).
 
 The equivalents to the above in JXA JavaScript (again, the `exportable`
 variable is optional):
 
 ```javascript
-Application('Alfred 3').setConfiguration('BROWSER', {
+Application('com.runningwithcrayons.Alfred').setConfiguration('browser', {
     toValue: 'Safari',
     inWorkflow: 'net.deanishe.demo',
     exportable: true
@@ -302,11 +313,35 @@ Or using the `alfred_workflow_bundleid` variable:
 
 ```javascript
 ObjC.import('stdlib');
-Application('Alfred 3').setConfiguration('BROWSER', {
+Application('com.runningwithcrayons.Alfred').setConfiguration('browser', {
     toValue: 'Safari',
     inWorkflow: $.getenv('alfred_workflow_bundleid'),
     exportable: true
 });
+```
+
+And to remove a variable:
+
+```javascript
+Application('com.runningwithcrayons.Alfred').removeConfiguration('browser', {
+  inWorkflow: $.getenv('alfred_workflow_bundleid')
+});
+```
+
+### Alfred 3 ###
+
+If you're still using Alfred 3, call the application by name, not bundle ID.
+
+AppleScript:
+
+```applescript
+tell application "Alfred 3" to ...
+```
+
+JXA:
+
+```javascript
+Application('Alfred 3')...
 ```
 
 

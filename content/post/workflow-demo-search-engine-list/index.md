@@ -1,6 +1,6 @@
 ---
 title: "Demo workflow: Search engine List Filter"
-date: "2019-07-26"
+date: "2019-07-26T19:00:00.000Z"
 draft: false
 tags:
     - alfred-workflow

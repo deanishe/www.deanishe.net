@@ -9,8 +9,8 @@ tags: []
 Stuff I like:
 
 - [Alfred][alfred]
-- [Python][python]
 - [Go][go]
+- [Python][python]
 - [GitHub][gh]
 
 Stuff I used to make the site:

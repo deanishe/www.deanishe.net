@@ -76,9 +76,10 @@ func Build() error {
 		mg.Deps(Assets)
 	}
 	fmt.Println("building ...")
-	if err := sh.Run("hugo"); err != nil {
+	if err := hugo(nil); err != nil {
 		return err
 	}
+
 	return ServiceWorker()
 }
 
@@ -90,7 +91,21 @@ func Dev() error {
 	}
 	fmt.Println("building dev ...")
 	env := map[string]string{"ENV": "dev"}
-	return sh.RunWith(env, "hugo")
+	return hugo(env)
+}
+
+func hugo(env map[string]string) error {
+	var err error
+	if env != nil {
+		err = sh.RunWith(env, "hugo")
+	} else {
+		err = sh.Run("hugo")
+	}
+	if err != nil {
+		return err
+	}
+	// needed to unfuck go.mod
+	return Deps()
 }
 
 // Publish push website to hosting server
@@ -138,15 +153,13 @@ func Deps() error {
 }
 
 // Clean delete files in ./public
-func Clean() error {
-	fmt.Printf("cleaning %s ...\n", BuildDir)
-	err := os.RemoveAll(BuildDir)
-	if err != nil && !os.IsNotExist(err) {
-		return err
-	}
+func Clean() { mg.Deps(cleanMage, cleanBuild) }
 
-	fmt.Println("cleaning mage cache ...")
-	return sh.Run("mage", "-clean")
+func cleanMage() error { return sh.Run("mage", "-clean") }
+
+func cleanBuild() error {
+	fmt.Printf("cleaning %s ...\n", BuildDir)
+	return sh.Rm(BuildDir)
 }
 
 // find any files under directory with given extension

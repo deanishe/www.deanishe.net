@@ -29,4 +29,4 @@ The workflow reads Firefox's bookmarks.html file, so first you must make sure th
 
 ### Profiles
 
-By default, the workflow reads the bookmarks.html file for the default Firefox profile. If you wish to read a different profile's bookmarks, set `profile_name` in the workflow's configuration sheet to the appropriate name, e.g. "dev-edition-default".
+By default, the workflow reads the bookmarks.html file for the default Firefox profile. If you wish to read a different profile's bookmarks, set `profile_name` in the workflow's configuration sheet to the appropriate name, e.g. `dev-edition-default`.

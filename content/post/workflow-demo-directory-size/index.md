@@ -9,7 +9,7 @@ platforms:
     - Alfred
 ---
 
-Alfred workflows that shows the size of a directory.
+Alfred workflow that shows the size of a directory.
 
 <!--more-->
 

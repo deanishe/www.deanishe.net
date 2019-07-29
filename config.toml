@@ -40,7 +40,7 @@ googleAnalytics = ""
 
 	# Analytics
 	piwikURL = "deanishe.net/piwik"
-	piwikSiteID = 2
+	piwikSiteID = 3
 
 	# Social
 	githubUsername = "deanishe"

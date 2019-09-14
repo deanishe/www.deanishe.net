@@ -38,7 +38,7 @@ Configure the workflow via its configuration sheet in Alfred Preferences:
 
 `app_name` is the name of the application you want to search in.
 
-`delay` is how long (in seconds) the workflow waits for the app's search dialog to activate after sending <kbd>⌘F</kbd> before it attemps to type the query or send <kbd>↩</kbd>.
+`delay` is how long (in seconds) the workflow waits for the app's search dialog to activate after sending <kbd>⌘F</kbd> before it attempts to type the query or send <kbd>↩</kbd>.
 
 If `press_return` is set to `1`, the workflow simulates <kbd>↩</kbd> to start the search.
 

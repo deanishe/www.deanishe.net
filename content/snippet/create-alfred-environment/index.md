@@ -23,6 +23,8 @@ directories.
 Source the following script in your shell and/or test runner to extract
 Alfred workflow variables from `info.plist`:
 
+{{< code script="alfredenv.sh" lang="bash" >}}
+
 ```bash
 # When sourced, creates an Alfred-like environment
 

@@ -15,7 +15,7 @@ metadataFormat = "yaml"
 paginate = 10
 
 pygmentsUseClasses = true
-pygmentsCodefences = true
+pygmentsCodefences = false
 pygmentsCodefencesGuessSyntax = true
 # pygmentsOptions = "linenos=true"
 
@@ -56,6 +56,9 @@ googleAnalytics = ""
 	# Links
 	pinboardMaxPosts = 15
 
+	# Include highlightjs
+	highlightjs = true
+
 	# Whether or not to generate a service worker for the site
 	createServiceWorker = true
 
@@ -71,7 +74,7 @@ googleAnalytics = ""
 
 [params.repos]
 	# Repos to ignore projects from
-	ignored = ["deanishe/deanishe.github.io", "deanishe/www.deanishe.net"]
+	ignored = ["deanishe.github.io", "www.deanishe.net"]
 
 [params.footer]
 	copyright = "[@deanishe](https://twitter.com/deanishe)"

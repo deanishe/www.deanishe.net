@@ -74,7 +74,12 @@ googleAnalytics = ""
 
 [params.repos]
 	# Repos to ignore projects from
-	ignored = ["deanishe.github.io", "www.deanishe.net"]
+	ignored = [
+		"deanishe/deanishe.github.io",
+		"deanishe.github.io",
+		"www.deanishe.net",
+		"deanishe/www.deanishe.net",
+	]
 
 [params.footer]
 	copyright = "[@deanishe](https://twitter.com/deanishe)"

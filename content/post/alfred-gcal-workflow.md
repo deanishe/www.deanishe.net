@@ -13,6 +13,8 @@ tags: [alfred, workflow, google-calendar, google, calendar]
 
 View Google Calendar events in [Alfred][alfred]. Supports multiple accounts.
 
+<!--more-->
+
 <!-- MarkdownTOC autolink="true" bracket="round" depth="3" autoanchor="true" -->
 
 - [Google Calendar for Alfred](#google-calendar-for-alfred)

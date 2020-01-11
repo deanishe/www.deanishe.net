@@ -25,6 +25,13 @@ enableGitInfo = true
 disqusShortname = ""
 googleAnalytics = ""
 
+[markup]
+	defaultMarkdownHandler = "goldmark"
+
+	[markup.goldmark.renderer]
+		unsafe = true
+
+
 [blackfriday]
 	sourceRelativeLinksEval = false
 

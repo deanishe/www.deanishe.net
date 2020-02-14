@@ -328,7 +328,7 @@ Application('com.runningwithcrayons.Alfred').removeConfiguration('browser', {
 });
 ```
 
-### Alfred 3 ###
+### Alfred 3 ###
 
 If you're still using Alfred 3, call the application by name, not bundle ID.
 

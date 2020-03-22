@@ -22,7 +22,7 @@ This way, you can enter your search query first and then choose
 which search engine to search with, or easily come back and
 use a different search engine.
 
-Built to solve [this request on AlfredForum.com].
+Built to solve [this request on AlfredForum.com][thread].
 
 
 [thread]: https://www.alfredforum.com/topic/12753-option-suffixes-instead-of-prefixes/

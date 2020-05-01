@@ -70,7 +70,7 @@ googleAnalytics = ""
 	createServiceWorker = true
 
 [params.sidebar]
-	logo = "images/deanishe-128.png"
+	logo = "images/deanishe-256.png"
 
 	githubButton  = false
 	travisButton  = false

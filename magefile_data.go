@@ -12,15 +12,22 @@ import (
 
 var (
 	// CLI scripts in themes/alabastard/bin
-	github   func(args ...string) error
-	forecast func(args ...string) error
-	pinboard func(args ...string) error
-)
-
-func init() {
 	github = sh.RunCmd(filepath.Join(BinDir, "github"))
 	forecast = sh.RunCmd(filepath.Join(BinDir, "forecast"))
 	pinboard = sh.RunCmd(filepath.Join(BinDir, "pinboard-public"))
+
+	// Subdirectories of DataDir
+	ForecastFile = "darksky/forecast.json"
+	ReposFile    = "github/repos.json"
+	EventsFile   = "github/events.json"
+	PostsFile    = "pinboard/posts.json"
+)
+
+func init() {
+	ForecastFile = filepath.Join(DataDir, ForecastFile)
+	ReposFile = filepath.Join(DataDir, ReposFile)
+	EventsFile = filepath.Join(DataDir, EventsFile)
+	PostsFile = filepath.Join(DataDir, PostsFile)
 }
 
 // Data fetch all remote data from GitHub, Pinboard etc.

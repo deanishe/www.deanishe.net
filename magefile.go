@@ -25,27 +25,14 @@ var Aliases = map[string]interface{}{
 	"a": All,
 }
 
-var (
+const (
 	// PublishRepo   = "https://github.com/deanishe/deanishe.github.io"
 	PublishRepo   = "git@github.com:deanishe/deanishe.github.io.git"
 	PublishBranch = "master"
 	BinDir        = "./themes/alabastard/bin"
 	BuildDir      = "./public"
 	DataDir       = "./data"
-
-	// Subdirectories of DataDir
-	ForecastFile = "darksky/forecast.json"
-	ReposFile    = "github/repos.json"
-	EventsFile   = "github/events.json"
-	PostsFile    = "pinboard/posts.json"
 )
-
-func init() {
-	ForecastFile = filepath.Join(DataDir, ForecastFile)
-	ReposFile = filepath.Join(DataDir, ReposFile)
-	EventsFile = filepath.Join(DataDir, EventsFile)
-	PostsFile = filepath.Join(DataDir, PostsFile)
-}
 
 // Assets compile .coffee files to JS
 func Assets() error {

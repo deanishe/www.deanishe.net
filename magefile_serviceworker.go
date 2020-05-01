@@ -21,26 +21,12 @@ var (
 	workerFilename = "sw.js"
 	workerTemplate = "serviceworker.template.js"
 	workerGlobs    = []string{
-		// Assets
-		// "img/*.png",
-		// "img/*.jpg",
-		// "img/*.svg",
-		// "img/people/*.jpg",
+		// versioned assets
 		"js/*.min.*.js",
 		"style/*.*.css",
-		// Pages
-		// "/",
-		// "botschafter/",
-		// "datenschutz/",
-		// "gaeste/",
-		// "helfen/",
-		// "kontakt/",
-		// "kulturpartner/",
-		// "presse/",
-		// "rechner/",
-		// "schirmherr/",
-		// "sozialpartner/",
-		// "verein/",
+		// theme images
+		"images/*.png",
+		"images/*.svg",
 	}
 	workerExcludeGlobs = []string{
 		// "favicons/**",

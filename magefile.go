@@ -122,6 +122,10 @@ func Publish() error {
 
 	msg := "rebuilt site " + time.Now().UTC().Format(time.RFC3339)
 	fmt.Println("creating git repo ...")
+	// make sure this isn't a git repo
+	if err := sh.Rm(".git"); err != nil {
+		return err
+	}
 	if err := sh.Run("git", "init", "."); err != nil {
 		return err
 	}

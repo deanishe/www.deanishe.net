@@ -83,6 +83,7 @@ googleAnalytics = ""
 	# Repos to ignore projects from
 	ignored = [
 		"deanishe/alabastard",
+		"alabastard",
 		"deanishe/deanishe.github.io",
 		"deanishe.github.io",
 		"www.deanishe.net",

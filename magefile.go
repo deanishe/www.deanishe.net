@@ -3,15 +3,23 @@
 package main
 
 import (
+	"net/url"
 	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
 
+	"github.com/BurntSushi/toml"
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 )
+
+// Aliases for Mage commands
+
+// Aliases for Mage commands
+
+// Aliases for Mage commands
 
 // Aliases for Mage commands
 var Aliases = map[string]interface{}{
@@ -33,6 +41,29 @@ const (
 	BuildDir      = "./public"
 	DataDir       = "./data"
 )
+
+var Hostname string
+
+func hostname() string {
+	if Hostname != "" {
+		return Hostname
+	}
+	s := struct{
+		BaseURL string `toml:"baseURL"`
+	}{}
+
+	if _, err := toml.DecodeFile("config.toml", &s); err != nil {
+		panic(err)
+	}
+
+	URL, err := url.Parse(s.BaseURL)
+	if err != nil {
+		panic(err)
+	}
+	Hostname = URL.Hostname()
+
+	return Hostname
+}
 
 // Assets compile .coffee files to JS
 func Assets() error {

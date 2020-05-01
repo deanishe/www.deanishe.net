@@ -107,6 +107,7 @@ func ServiceWorker() error {
 	params := map[string]interface{}{
 		"Version":    fmt.Sprintf("%x", hash.Sum(nil))[0:12],
 		"CacheFiles": paths,
+		"Hostname": hostname(),
 	}
 	var s string
 	if s, err = jsTemplate(workerTemplate, params); err != nil {

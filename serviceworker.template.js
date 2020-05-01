@@ -13,7 +13,13 @@ self.addEventListener('fetch', function(event) {
   if (event.request.method !== 'GET') return;
 
   var url = new URL(event.request.url);
-  // console.debug(`[worker] pathname=${url.pathname}`);
+  if (url.hostname !== '{{ .Hostname }}') {
+    return;
+  }
+
+  if (url.search) {
+    return;
+  }
 
   // return versioned assets from cache
   if (url.pathname.match(/\/js\/.+\.js$/) ||

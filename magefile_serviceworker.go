@@ -7,7 +7,6 @@ import (
 	"crypto/sha256"
 	"fmt"
 	"html/template"
-	"io"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -20,13 +19,15 @@ import (
 var (
 	workerFilename = "sw.js"
 	workerTemplate = "serviceworker.template.js"
-	workerGlobs    = []string{
+	workerIncludeGlobs    = []string{
 		// versioned assets
-		"js/*.min.*.js",
-		"style/*.*.css",
+		"/js/*.min.*.js",
+		"/style/*.*.css",
 		// theme images
-		"images/*.png",
-		"images/*.svg",
+		"/images/*.png",
+		"/images/*.svg",
+		"/favicon.ico",
+		"/apple-touch-icon.png",
 	}
 	workerExcludeGlobs = []string{
 		// "favicons/**",
@@ -37,6 +38,97 @@ var (
 	}
 )
 
+
+// generate serviceworker
+func ServiceWorker() error {
+	fmt.Println("generating service worker ...")
+	var (
+		// includes = []string{
+		// 	"**/*.js", "**/*.css", "**/*.map",
+		// 	"**/*.xml",
+		// 	"**/*.ico", "**/*.png",
+		// }
+		data       []byte
+		hash       = sha256.New()
+		paths      = []string{}
+		err        error
+	)
+
+	data, err = ioutil.ReadFile(workerTemplate)
+	if err != nil {
+		return err
+	}
+	hash.Write(data)
+
+	err = filepath.Walk(BuildDir, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if info.IsDir() || info.Name() == "sw.js" {
+			return nil
+		}
+
+		url := path[len(BuildDir)-2:]
+
+		for _, pat := range workerExcludeGlobs {
+			match, err := doublestar.Match(pat, url)
+			if err != nil {
+				return err
+			}
+			if match {
+				return nil
+			}
+		}
+
+		for _, pat := range workerIncludeGlobs {
+			match, err := doublestar.Match(pat, url)
+			if err != nil {
+				return err
+			}
+			if match {
+				fmt.Println("+", url)
+
+				data, err := ioutil.ReadFile(path)
+				if err != nil {
+					return err
+				}
+				hash.Write(data)
+				paths = append(paths, url)
+				break
+			}
+		}
+		return nil
+	})
+	if err != nil {
+		return err
+	}
+
+	params := map[string]interface{}{
+		"Version":    fmt.Sprintf("%x", hash.Sum(nil))[0:12],
+		"CacheFiles": paths,
+	}
+	var s string
+	if s, err = jsTemplate(workerTemplate, params); err != nil {
+		return err
+	}
+
+	m := minify.New()
+	m.AddFunc("text/javascript", js.Minify)
+	s, err = m.String("text/javascript", s)
+	if err != nil {
+		return err
+	}
+
+	if err = ioutil.WriteFile(filepath.Join(BuildDir, workerFilename), []byte(s), 0644); err != nil {
+		return err
+	}
+
+	fmt.Println("wrote", workerFilename)
+	return nil
+}
+
+/*
 // ServiceWorker generate a service worker script
 func ServiceWorker() error {
 
@@ -218,4 +310,31 @@ func makeWorker(files []workerFile) ([]byte, error) {
 	}
 
 	return []byte(s), nil
+}
+*/
+
+func jsTemplate(path string, params interface{}) (content string, err error) {
+	var (
+		s string
+		data []byte
+		t *template.Template
+		b bytes.Buffer
+	)
+
+	if data, err = ioutil.ReadFile(path); err != nil {
+		return
+	}
+
+	// wrap in <script> tags so html/template treats it as JS
+	s = "<script>" + string(data) + "</script>"
+
+	t = template.Must(template.New("_").Parse(s))
+	if err = t.Execute(&b, params); err != nil {
+		return
+	}
+
+	s = b.String()
+	// remove <script> tags
+	content = s[8 : len(s)-9]
+	return
 }

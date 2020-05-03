@@ -31,7 +31,8 @@ Download [Video Conferences.alfredworkflow](Video%20Conferences.alfredworkflow) 
 ## Usage ##
 
 - `.vc [<query>]` — Search upcoming video-conference events
-    - <kbd>⌘↩</kbd> — Open video-conference URL in your default browser
+    - <kbd>↩</kbd> — Open video-conference URL in your default browser
+    - <kbd>⌘↩</kbd> — Show event in Calendar.app
 - `.vc reload` — Force reload the cached list of events
 
 
@@ -53,6 +54,20 @@ The workflow has a few knobs to turn in its configuration sheet.
 
 `regex_zoom`, `regex_lync` etc.
 : Variables starting with `regex_` are used to search for video conference URLs. There are currently regular expressions for Zoom (`regex_zoom`) and Lync (`regex_lync`). Add new variables starting with `regex_` to add regular expressions that match the URLs of other services you'd like to add.
+
+
+## Changelog ##
+
+- **v0.0.1** (2020-05-02)
+
+    - Initial release
+
+- **v0.0.2** (2020-05-04)
+
+    - Show ongoing meetings
+    - Add support for Google Meet
+    - Event icons have the same colour as their calendars
+    - Add alternate action <kbd>⌘↩</kbd> to show event in Calendar.app
 
 
 [aw]: https://www.deanishe.net/alfred-workflow/

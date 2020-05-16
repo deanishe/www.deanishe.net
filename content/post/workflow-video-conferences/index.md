@@ -8,10 +8,12 @@ tags:
     - video-conference
     - zoom
     - lync
+    - google-meet
 platforms:
     - Alfred
     - Zoom
     - Lync
+    - Google Meet
 ---
 
 An Alfred 4+ workflow that shows upcoming calendar events that are video conferences, and opens the links to them. It supports Lync and Zoom out of the box, but can be easily configured to support additional services.
@@ -58,9 +60,9 @@ The workflow has a few knobs to turn in its configuration sheet.
 
 ## Changelog ##
 
-- **v0.0.1** (2020-05-02)
+- **v0.0.3** (2020-05-16)
 
-    - Initial release
+    - Add additional Zoom regex
 
 - **v0.0.2** (2020-05-04)
 
@@ -68,6 +70,10 @@ The workflow has a few knobs to turn in its configuration sheet.
     - Add support for Google Meet
     - Event icons have the same colour as their calendars
     - Add alternate action <kbd>⌘↩</kbd> to show event in Calendar.app
+
+- **v0.0.1** (2020-05-02)
+
+    - Initial release
 
 
 [aw]: https://www.deanishe.net/alfred-workflow/

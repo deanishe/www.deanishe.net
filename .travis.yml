@@ -28,12 +28,13 @@ script:
   - "PATH=$GOPATH/bin:$PATH mage -v data build"
 
 deploy:
-  skip_cleanup: true
-  provider: pages
+  edge: true
+  provider: "pages:git"
   repo: deanishe/deanishe.github.io
-  target-branch: master
+  target_branch: master
   local_dir: public
-  github_token: "$GITHUB_TOKEN"
+  # token: "$GITHUB_TOKEN"
+  cleanup: false
   on:
     branch: master
 

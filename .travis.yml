@@ -22,7 +22,7 @@ script:
 
 deploy:
   edge: true
-  provider: pages:git
+  # provider: pages:git
   repo: deanishe/deanishe.github.io
   target_branch: master
   local_dir: public

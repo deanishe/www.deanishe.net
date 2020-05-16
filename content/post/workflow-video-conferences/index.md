@@ -55,7 +55,7 @@ The workflow has a few knobs to turn in its configuration sheet.
 : As with `account_*` variables, you can use variables starting with `calendar_` to restrict the search to only calendars whose names match the variables, e.g. if you've set `calendar_1` to `Work`, only calendars named "Work" will be searched.
 
 `regex_zoom`, `regex_lync` etc.
-: Variables starting with `regex_` are used to search for video conference URLs. There are currently regular expressions for Zoom (`regex_zoom`) and Lync (`regex_lync`). Add new variables starting with `regex_` to add regular expressions that match the URLs of other services you'd like to add.
+: Variables starting with `regex_` are used to search for video conference URLs. There are currently regular expressions for Zoom, Lync and Google Meet. Add new variables starting with `regex_` to add regular expressions that match the URLs of other services you'd like to add.
 
 
 ## Changelog ##

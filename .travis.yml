@@ -1,4 +1,5 @@
 language: go
+os: linux
 dist: xenial
 
 env:
@@ -9,14 +10,6 @@ go:
 
 git:
   depth: 3
-
-# before_install:
-#   - openssl aes-256-cbc -K $encrypted_53f656cbcdd0_key -iv $encrypted_53f656cbcdd0_iv
-#     -in deploy_key.enc -out ./deploy_key -d
-#   - eval "$(ssh-agent -s)"
-#   - chmod 600 ./deploy_key
-#   - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-#   - ssh-add ./deploy_key
 
 install:
   - go get -u -v github.com/magefile/mage
@@ -29,11 +22,10 @@ script:
 
 deploy:
   edge: true
-  provider: "pages:git"
+  provider: pages:git
   repo: deanishe/deanishe.github.io
   target_branch: master
   local_dir: public
-  # token: "$GITHUB_TOKEN"
   cleanup: false
   on:
     branch: master

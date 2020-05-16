@@ -16,7 +16,7 @@ platforms:
     - Google Meet
 ---
 
-An Alfred 4+ workflow that shows upcoming calendar events that are video conferences, and opens the links to them. It supports Lync and Zoom out of the box, but can be easily configured to support additional services.
+An Alfred 4+ workflow that shows upcoming calendar events that are video conferences, and opens the links to them. It supports Lync, Zoom and Google Meet out of the box, but can be easily configured to support additional services.
 
 <!--more-->
 

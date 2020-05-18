@@ -45,7 +45,7 @@ The workflow has a few knobs to turn in its configuration sheet.
 `lookahead_days` (default: `3`)
 : The number of days to fetch events for.
 
-`max_cache_seconds` (default: `1200`)
+`max_cache_seconds` (default: `300`)
 : How long (in seconds, obvs) to cache the list of events for. Fetching events is pretty slow, so adjust this to find the right compromise between speed and freshness. You can refresh the cached list of events at any time by entering the search query "reload".
 
 `account_1` (default: empty)
@@ -59,6 +59,12 @@ The workflow has a few knobs to turn in its configuration sheet.
 
 
 ## Changelog ##
+
+- **v0.1.0** (2020-05-18)
+
+    - Fix Zoom regex to match meeting URLs without a password
+    - Shorten default cache period to 5 minutes
+    - Fix reload logic
 
 - **v0.0.3** (2020-05-16)
 

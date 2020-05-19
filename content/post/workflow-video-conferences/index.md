@@ -60,6 +60,10 @@ The workflow has a few knobs to turn in its configuration sheet.
 
 ## Changelog ##
 
+- **v0.1.1** (2020-05-19)
+
+    - Re-open workflow after force reload
+
 - **v0.1.0** (2020-05-18)
 
     - Fix Zoom regex to match meeting URLs without a password

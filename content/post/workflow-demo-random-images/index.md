@@ -24,11 +24,13 @@ Configuration
 
 The workflow can be configured via its configuration sheet.
 
-|   Variable  |   Default    |          Description          |
-|-------------|--------------|-------------------------------|
-| `APP_NAME`  | `Preview`    | Application to open images in |
-| `IMAGE_DIR` | `~/Pictures` | Directory to read images from |
+|   Variable   |   Default    |               Description               |
+|--------------|--------------|-----------------------------------------|
+| `APP_NAME`   | `Preview`    | Application to open images in           |
+| `IMAGE_DIR`  | `~/Pictures` | Directory to read images from           |
+| `PLAY_SOUND` | `true`       | Play a sound halfway through and at end |
 
+If Preview is the chosen application, the images are opened in fullscreen mode.
 
 From [this forum thread][thread].
 

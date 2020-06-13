@@ -9,15 +9,11 @@ tags:
     - demo
 ---
 
-Do-nothing workflow that shows how to use modifiers and filters in
-an Alfred Workflow.
+Do-nothing workflow that shows how to use modifiers and filters in an Alfred Workflow.
 
 <!--more-->
 
-Note that the workflow uses an outdated (but working) feedback format.
-It's no longer necessary to serialise a `alfredworkflow` object into
-`arg`: `mod` is now a much richer object, with support for `variables`
-and `args` fields.
+Note that the workflow uses an outdated (but working) feedback format. It's no longer necessary to serialise a `alfredworkflow` object into `arg`: `mod` is now a much richer object, with support for `variables` and `args` fields.
 
 From [this forum thread][thread].
 

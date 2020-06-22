@@ -92,7 +92,7 @@ def export_shorcuts(shortcuts, dirpath):
             os.unlink(os.path.join(dirpath, name))
 
     for i, sc in enumerate(shortcuts):
-        name = u'%s [%s].json' % (sc.keyword, sc.uid)
+        name = u'%s [%s].json' % (safename(sc.keyword), sc.uid)
         path = join(dirpath, name.encode('utf-8'))
         log('[%d/%d] saving snippet %r to %r ...', i+1, len(shortcuts), sc.keyword, path)
         with open(path, 'wb') as fp:

@@ -1,5 +1,5 @@
 ---
-title: "macOS Shortcuts to Alfred Snippets"
+title: "Sync macOS Shortcuts to Alfred Snippets"
 date: "2020-06-22T12:04:12+02:00"
 draft: false
 tags:
@@ -13,11 +13,13 @@ platforms:
     - macOS
 ---
 
-Python script to convert macOS/iOS system shortcuts to [Alfred][alfredapp] snippets.
+Python script to sync macOS/iOS system shortcuts to an [Alfred][alfredapp] snippet collection.
 
 <!--more-->
 
-The script converts macOS shortcuts as defined in System Preferences > Keyboard > Text to Alfred snippets.
+The script syncs your macOS shortcuts as defined in System Preferences > Keyboard > Text to an Alfred snippets collection.
+
+As the script syncs macOS snippets to Alfred, **it will remove all other snippets**, so don't put anything else in that collection.
 
 
 ## Why? ##
@@ -41,8 +43,6 @@ The script has two options, set by environment variables:
 : Name of Alfred snippet collection to sync macOS shortcuts to
 
 The script will create Alfred snippets in directory `$SNIPPETS_DIR/$COLLECTION_NAME`.
-
-As the script syncs macOS snippets to Alfred, **it will remove all other snippets first**, so don't put anything else in that collection.
 
 {{< code script="shortcuts2alfred.py" lang="python" >}}
 

@@ -17,7 +17,7 @@ Python script to sync macOS/iOS system shortcuts to an [Alfred][alfredapp] snipp
 
 <!--more-->
 
-The script syncs your macOS shortcuts as defined in System Preferences > Keyboard > Text to an Alfred snippets collection.
+The script syncs your macOS shortcuts as defined in "System Preferences > Keyboard > Text" to an Alfred snippets collection.
 
 As the script syncs macOS snippets to Alfred, **it will remove all other snippets**, so don't put anything else in that collection.
 
@@ -36,13 +36,13 @@ You can run the script from wherever, but unless you run it from your Alfred sni
 
 The script has two options, set by environment variables:
 
-`SNIPPETS_DIR` (default: `.`)
+`SNIPPET_DIR` (default: `.`)
 : Directory your Alfred snippets are in. In most cases, this should be the path to the `snippets` subdirectory of your `Alfred.alfredpreferences` bundle. The default location (i.e. you aren't syncing your Alfred preferences) would be `~/Library/Application Support/Alfred/Alfred.alfredpreferences/snippets`.
 
 `COLLECTION_NAME` (default: `macOS`)
 : Name of Alfred snippet collection to sync macOS shortcuts to
 
-The script will create Alfred snippets in directory `$SNIPPETS_DIR/$COLLECTION_NAME`.
+The script will create Alfred snippets in directory `$SNIPPET_DIR/$COLLECTION_NAME`.
 
 {{< code script="shortcuts2alfred.py" lang="python" >}}
 

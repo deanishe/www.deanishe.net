@@ -9,14 +9,16 @@ tags:
     - zoom
     - lync
     - google-meet
+    - ms-teams
 platforms:
     - Alfred
     - Zoom
     - Lync
     - Google Meet
+    - Microsoft Teams
 ---
 
-An Alfred 4+ workflow that shows upcoming calendar events that are video conferences, and opens the links to them. It supports Lync, Zoom and Google Meet out of the box, but can be easily configured to support additional services.
+An Alfred 4+ workflow that shows upcoming calendar events that are video conferences, and opens the links to them. It supports Lync, Zoom, Microsoft Teams and Google Meet out of the box, but can be easily configured to support additional services.
 
 <!--more-->
 
@@ -59,6 +61,14 @@ The workflow has a few knobs to turn in its configuration sheet.
 
 
 ## Changelog ##
+
+- **v0.1.3** (2020-11-20)
+
+    - Add support for Microsoft Teams
+
+- **v0.1.2** (2020-11-19)
+
+    - Smarter date parsing
 
 - **v0.1.1** (2020-05-19)
 

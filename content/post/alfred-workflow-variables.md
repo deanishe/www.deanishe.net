@@ -15,6 +15,8 @@ This is a brief look at how to get, set and save variables in code
 
 <!--more-->
 
+<!-- MarkdownTOC autolink="true" bracket="round" levels="2,3,4,5" autoanchor="true" -->
+
 - [Introduction](#introduction)
 - [Setting variables](#setting-variables)
   - [From Run Script actions](#from-run-script-actions)
@@ -26,15 +28,17 @@ This is a brief look at how to get, set and save variables in code
   - [bash](#bash)
   - [Python](#python)
   - [AppleScript](#applescript)
-  - [JavaScript (JXA)](#javascript-jxa)
+  - [JavaScript \(JXA\)](#javascript-jxa)
   - [PHP](#php)
   - [Ruby](#ruby)
 - [Saving variables](#saving-variables)
   - [AppleScript](#applescript-1)
-  - [JavaScript (JXA)](#javascript-jxa-1)
+  - [JavaScript \(JXA\)](#javascript-jxa-1)
   - [Alfred 3](#alfred-3)
 
+<!-- /MarkdownTOC -->
 
+<a id="introduction"></a>
 ## Introduction ##
 
 In Alfred 2, you had one single variable to work with: the `{query}`
@@ -52,6 +56,7 @@ Mäh mal ei"]`), Alfred will turn it into a single tab-delimited string
 (`"1\t2\t3\tmach dat Mäh mal ei"`).
 
 
+<a id="setting-variables"></a>
 ## Setting variables ##
 
 There are several ways to set variables. The most obvious ones are in
@@ -72,6 +77,7 @@ Script action.
 **NOTE: You must use the appropriate mechanism, or it won't work!**
 
 
+<a id="from-run-script-actions"></a>
 ### From Run Script actions ###
 
 Let's say your script outputs a URL, e.g. https://www.google.com.
@@ -92,6 +98,7 @@ Action's input/`{query}`) goes in `arg`, and any variables you wish to
 set go in the `variables` object.
 
 
+<a id="from-script-filters"></a>
 ### From Script Filters ###
 
 You can also set workflow variables via Script Filter feedback at three
@@ -104,6 +111,7 @@ In each case, variables are set via a `variables` object at the
 appropriate level (feedback root, `item` or `mod`).
 
 
+<a id="root-level-variables"></a>
 #### Root-level variables ####
 
 Root-level variables are always passed to downstream elements
@@ -120,6 +128,7 @@ variables to implement a [progress bar][progress-bar].
 ```
 
 
+<a id="item-level-variables"></a>
 #### Item-level variables ####
 
 Item-level variables are only passed downstream when the item they're
@@ -139,6 +148,7 @@ variables are also passed downstream when you action an item.
 ```
 
 
+<a id="modifier-level-variables"></a>
 #### Modifier-level variables ####
 
 Modifier-level variables are only passed downstream when the
@@ -163,6 +173,7 @@ holding ⌘ when actioning it:
 ```
 
 
+<a id="using-variables"></a>
 ## Using variables ##
 
 So you've set a few variables, and now you want to use them. Within
@@ -183,11 +194,13 @@ variable `browser` to `Safari` or `Google Chrome`. How you retrieve
 environment variables depends on the language you're using.
 
 
+<a id="bash"></a>
 ### bash ###
 
 The variables are already in the global namespace. Just use `$browser`
 
 
+<a id="python"></a>
 ### Python ###
 
 Use the `os.environ` dictionary or `os.getenv('VARIABLE_NAME')`:
@@ -200,6 +213,7 @@ browser = os.environ['browser']
 browser = os.getenv('browser')
 ```
 
+<a id="applescript"></a>
 ### AppleScript ###
 
 Use `system attribute`:
@@ -209,6 +223,7 @@ set theBrowser to (system attribute "browser")
 ```
 
 
+<a id="javascript-jxa"></a>
 ### JavaScript (JXA) ###
 
 Use `$.getenv()`:
@@ -219,6 +234,7 @@ var browser = $.getenv('browser');
 ```
 
 
+<a id="php"></a>
 ### PHP ###
 
 Use `getenv()`:
@@ -234,6 +250,7 @@ $browser = $_ENV['browser'];
 use `getenv()` over `$_ENV`.)
 
 
+<a id="ruby"></a>
 ### Ruby ###
 
 Use `ENV`:
@@ -243,6 +260,7 @@ browser = ENV["browser"]
 ```
 
 
+<a id="saving-variables"></a>
 ## Saving variables ##
 
 Any variables you set in a running workflow are **not** saved. They
@@ -262,6 +280,7 @@ As of version 3.6, Alfred provides the `set configuration` and
 variables set in the Workflow Configuration Sheet.
 
 
+<a id="applescript-1"></a>
 ### AppleScript ###
 
 The following applies to  Alfred 4+. For Alfred 3, [see below](#alfred-3).
@@ -294,6 +313,7 @@ The corresponding call to remove a variable is:
 tell application id "com.runningwithcrayons.Alfred" to remove configuration "browser" in workflow "net.deanishe.demo"
 ```
 
+<a id="javascript-jxa-1"></a>
 ### JavaScript (JXA) ###
 
 The following applies to  Alfred 4+. For Alfred 3, [see below](#alfred-3).
@@ -328,6 +348,7 @@ Application('com.runningwithcrayons.Alfred').removeConfiguration('browser', {
 });
 ```
 
+<a id="alfred-3"></a>
 ### Alfred 3 ###
 
 If you're still using Alfred 3, call the application by name, not bundle ID.

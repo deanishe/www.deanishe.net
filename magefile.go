@@ -3,8 +3,8 @@
 package main
 
 import (
-	"net/url"
 	"fmt"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -48,7 +48,7 @@ func hostname() string {
 	if Hostname != "" {
 		return Hostname
 	}
-	s := struct{
+	s := struct {
 		BaseURL string `toml:"baseURL"`
 	}{}
 
@@ -78,14 +78,7 @@ func Assets() error {
 }
 
 // All update, generate and publish website
-func All() error {
-	mg.Deps(Data)
-	if err := Build(); err != nil {
-		return err
-	}
-
-	return Publish()
-}
+func All() { mg.SerialDeps(Data, Build, Publish) }
 
 // Build generate website in ./public
 func Build() error {

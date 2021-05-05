@@ -1,6 +1,6 @@
 ---
 title: "Workflow: Word to PDF"
-date: "2021-05-05T17:49:22+02:00"
+date: "2021-05-05T18:25:00+02:00"
 draft: false
 tags:
     - alfred-workflow

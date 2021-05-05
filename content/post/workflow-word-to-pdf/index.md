@@ -37,10 +37,10 @@ Download [Word to PDF.alfredworkflow][workflow] and double-click to install.
 
 The workflow has two configuration settings:
 
-`REVEAL_PDF`
-: Set to `true` to reveal the (last) exported PDF file in Finder after conversion.
+`OPEN_WITH` (optional)
+: Set to the name of the application you'd like to open the exported PDFs with. Default value is `Preview`. Set to `Finder` to reveal the PDFs in Finder. Clear the value to not open the PDFs.
 
-`USE_ONLINE_SERVICE`
+`USE_ONLINE_SERVICE` (optional)
 : Set to `true` to use Word's native PDF export (i.e. Microsoft's online service). This can be much faster and more reliable than UI scripting the Print dialog, but it has obvious privacy implications.
 
 

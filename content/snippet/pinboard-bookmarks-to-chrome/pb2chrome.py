@@ -35,7 +35,8 @@ import sys
 try:
     from urllib2 import urlopen, URLError
 except ImportError:
-    from urllib.request import urlopen, URLError
+    from urllib.request import urlopen
+    from urllib.error import URLError
 
 # Name of Chrome profile to write Pinboard bookmarks to
 PROFILE = 'Pinboard Sync'
@@ -146,7 +147,7 @@ def main():
     log('%d bookmark(s) loaded from Pinboard', len(pinboard))
     chrome = [convert_bookmark(d) for d in pinboard]
     write_chrome_bookmarks(chrome, path)
-    log('Saved bookmarks to Chrome profile "%s" (%s)' % (profile.name, path))
+    log('saved bookmarks to Chrome profile "%s" (%s)' % (profile.name, path))
 
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@ title: "Google Calendar for Alfred"
 date: "2020-01-11T07:54:28+01:00"
 draft: false
 url: /alfred-gcal-workflow
-tags: [alfred, workflow, google-calendar, google, calendar]
+tags: [alfred, alfred-workflow, google-calendar, google, calendar]
 ---
 
 

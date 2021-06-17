@@ -62,6 +62,10 @@ The workflow has a few knobs to turn in its configuration sheet.
 
 ## Changelog ##
 
+- **v0.1.4** (2021-06-17)
+
+    - Add regex for new Microsoft Teams URL format
+
 - **v0.1.3** (2020-11-20)
 
     - Add support for Microsoft Teams

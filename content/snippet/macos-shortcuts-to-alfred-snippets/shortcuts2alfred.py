@@ -80,7 +80,7 @@ def safename(s):
     return s
 
 
-def export_shorcuts(shortcuts, dirpath):
+def export_shortcuts(shortcuts, dirpath):
     """Save macOS shortcuts to directory as Alfred snippets."""
     log('exporting snippets to %r ...', dirpath)
     if not os.path.exists(dirpath):
@@ -104,7 +104,7 @@ def main():
     shortcuts = load_shortcuts()
     log('loaded %d macOS shortcut(s)', len(shortcuts))
     dirpath = realpath(expanduser(join(SNIPPET_DIR, COLLECTION_NAME)))
-    export_shorcuts(shortcuts, dirpath)
+    export_shortcuts(shortcuts, dirpath)
 
 
 if __name__ == '__main__':
